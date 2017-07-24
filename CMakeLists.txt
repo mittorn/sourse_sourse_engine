@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.6)
+project(ReplicaSource)
+
+# Add build targets
+add_subdirectory(dedicated)
+add_subdirectory(dedicated_main)
+add_subdirectory(engine)
+#add_subdirectory(game)
+#add_subdirectory(gameui)
+add_subdirectory(inputsystem)
+add_subdirectory(launcher)
+add_subdirectory(launcher-main)
+add_subdirectory(networksystem)
+add_subdirectory(tier0)
+add_subdirectory(tier1)
+#add_subdirectory(tier2)
+add_subdirectory(vphysics)
+add_subdirectory(vstdlib)
