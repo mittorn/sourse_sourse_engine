@@ -23,6 +23,7 @@ include_directories(
 
 # Add build targets
 add_subdirectory(tier1)
+add_subdirectory(datacache)
 add_subdirectory(dedicated)
 add_subdirectory(dedicated_main)
 add_subdirectory(engine)
@@ -33,6 +34,7 @@ add_subdirectory(inputsystem)
 add_subdirectory(launcher)
 add_subdirectory(launcher_main)
 add_subdirectory(networksystem)
+add_subdirectory(scenefilecache)
 add_subdirectory(soundsystem)
 add_subdirectory(tier0)
 #add_subdirectory(tier2)
