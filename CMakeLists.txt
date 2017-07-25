@@ -13,6 +13,8 @@ set(CMAKE_SHARED_MODULE_PREFIX "")
 set(CMAKE_CXX_STANDARD 11) #03/14/17 ?
 set(CMAKE_CXX_EXTENSIONS ON)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -masm=intel")
+
 # Add include search paths
 include_directories(
 	${CMAKE_SOURCE_DIR}/common
@@ -29,7 +31,7 @@ add_subdirectory(game)
 add_subdirectory(gameui)
 add_subdirectory(inputsystem)
 add_subdirectory(launcher)
-add_subdirectory(launcher-main)
+add_subdirectory(launcher_main)
 add_subdirectory(networksystem)
 add_subdirectory(soundsystem)
 add_subdirectory(tier0)

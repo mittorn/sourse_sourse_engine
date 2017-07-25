@@ -5,7 +5,7 @@ file(GLOB PROJECT_SOURCES
 )
 
 if(PROJECT_SOURCES)
-	add_executable(${PROJECT_SOURCES} WIN32 ${PROJECT_SOURCES})
+	add_executable(${PROJECT_NAME} WIN32 ${PROJECT_SOURCES})
 	
 	set_target_properties(${PROJECT_NAME} PROPERTIES
 		OUTPUT_NAME "srcds"

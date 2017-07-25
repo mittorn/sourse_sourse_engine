@@ -5,7 +5,7 @@ file(GLOB PROJECT_SOURCES
 )
 
 if(PROJECT_SOURCES)
-	add_library(${PROJECT_SOURCES} MODULE ${PROJECT_SOURCES})
+	add_library(${PROJECT_NAME} MODULE ${PROJECT_SOURCES})
 	
 	set_target_properties(${PROJECT_NAME} PROPERTIES
 		OUTPUT_NAME "launcher"
