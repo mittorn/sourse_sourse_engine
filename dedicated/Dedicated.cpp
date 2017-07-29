@@ -18,6 +18,28 @@ C_EXPORT_FUNC int DedicatedMain(int argc, char **argv)
 	// * Shutdown
 	// * Unload
 	//
+	
+	tLibHandle hEngineLib = FIXME_LoadLibrary("engine");
+	
+	if(!hEngineLib)
+		return EXIT_FAILURE;
+	
+	CreateInterfaceFn fnEngineFactory = Sys_GetFactory(hEngineLib);
+	
+	if(fnEngineFactory)
+		return EXIT_FAILURE;
+	
+	IDedicatedServerAPI *pEngine = fnEngineFactory(VENGINE_DEDICATED_SERVER_API_VERSION, nullptr);
+	
+	if(pEngine)
+		return EXIT_FAILURE;
+	
+	pEngine->Init();
+	
+	while(true)
+		pEngine->Frame();
+	
+	pEngine->Shutdown();
 
 	return -1; // return what?
 };
