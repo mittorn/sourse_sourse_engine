@@ -10,4 +10,6 @@ if(PROJECT_SOURCES)
 	set_target_properties(${PROJECT_NAME} PROPERTIES
 		OUTPUT_NAME "hl2"
 	)
+	
+	target_link_libraries(${PROJECT_NAME} -ldl)
 endif()

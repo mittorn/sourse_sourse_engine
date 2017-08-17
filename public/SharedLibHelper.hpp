@@ -15,6 +15,9 @@ class SharedLibHelper
 public:
 	static tLibHandle LoadLib(const char *name)
 	{
+		//if(!name || !*name)
+			//return nullptr;
+
 	#ifdef _WIN32
 		return LoadLibrary(name);
 	#else
@@ -24,6 +27,9 @@ public:
 
 	static void FreeLib(tLibHandle hLib)
 	{
+		//if(!hLib)
+			//return;
+
 	#ifdef _WIN32
 		FreeLibrary(hLib);
 	#else
@@ -34,6 +40,9 @@ public:
 	template<typename T>
 	static T GetLibExport(tLibHandle hLib, const char *name)
 	{
+		//if(!hLib || !name || !*name)
+			//return nullptr;
+
 	#ifdef _WIN32
 		return (T)GetProcAddress(hLib, name);
 	#else
