@@ -25,7 +25,7 @@ void CDedicatedExports::Shutdown()
 {
 };
 
-void CDedicatedExports::Sys_Prints(char *text)
+void CDedicatedExports::Sys_Printf(char *text)
 {
 	// Sh1ft: TODO
 };

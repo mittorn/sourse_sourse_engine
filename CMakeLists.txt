@@ -13,7 +13,7 @@ set(CMAKE_SHARED_MODULE_PREFIX "")
 set(CMAKE_CXX_STANDARD 11) #03/14/17 ?
 set(CMAKE_CXX_EXTENSIONS ON)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -masm=intel")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -masm=intel")
 
 # Add include search paths
 include_directories(
@@ -22,22 +22,33 @@ include_directories(
 )
 
 # Add build targets
-add_subdirectory(tier1)
-add_subdirectory(datacache)
-add_subdirectory(dedicated)
-add_subdirectory(dedicated_main)
-add_subdirectory(engine)
-add_subdirectory(filesystem)
-add_subdirectory(game)
-add_subdirectory(gameui)
-add_subdirectory(inputsystem)
-add_subdirectory(launcher)
-add_subdirectory(launcher_main)
-add_subdirectory(networksystem)
-add_subdirectory(scenefilecache)
-add_subdirectory(soundemittersystem)
-add_subdirectory(soundsystem)
-add_subdirectory(tier0)
+#add_subdirectory(tier1)
+#add_subdirectory(tier0)
 #add_subdirectory(tier2)
+
+#add_subdirectory(vstdlib)
+
+#add_subdirectory(datacache)
+#add_subdirectory(scenefilecache)
+
+#add_subdirectory(soundemittersystem)
+
+#add_subdirectory(dedicated)
+add_subdirectory(dedicated_main)
+
+#add_subdirectory(filesystem)
+#add_subdirectory(networksystem)
 #add_subdirectory(vphysics)
-add_subdirectory(vstdlib)
+
+#add_subdirectory(engine)
+
+#add_subdirectory(game)
+
+if(NOT SWDS)
+#add_subdirectory(gameui)
+#add_subdirectory(inputsystem)
+#add_subdirectory(soundsystem)
+
+#add_subdirectory(launcher)
+add_subdirectory(launcher_main)
+endif()

@@ -16,7 +16,7 @@ public:
 	InitReturnVal_t Init() override;
 	void Shutdown() override;
 	
-	void Sys_Prints(char *text) override;
+	void Sys_Printf(char *text) override;
 	
 	void RunServer() override;
 };

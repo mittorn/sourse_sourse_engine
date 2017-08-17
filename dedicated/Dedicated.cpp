@@ -1,4 +1,4 @@
-#ifdef _MSVC
+#ifdef _MSC_VER
 	#define EXPORT_FUNC [[dllexport]]
 #elif __GNUC__
 	#define EXPORT_FUNC [[visibility("default")]]
@@ -19,7 +19,7 @@ C_EXPORT_FUNC int DedicatedMain(int argc, char **argv)
 	// * Unload
 	//
 	
-	tLibHandle hEngineLib = FIXME_LoadLibrary("engine");
+	CSysModule *hEngineLib = Sys_LoadModule("engine");
 	
 	if(!hEngineLib)
 		return EXIT_FAILURE;
@@ -40,6 +40,8 @@ C_EXPORT_FUNC int DedicatedMain(int argc, char **argv)
 		pEngine->Frame();
 	
 	pEngine->Shutdown();
+	
+	Sys_UnloadModule(hEngineLib);
 
 	return -1; // return what?
 };
