@@ -29,15 +29,21 @@ C_EXPORT_FUNC int DedicatedMain(int argc, char **argv)
 	if(fnEngineFactory)
 		return EXIT_FAILURE;
 	
-	IDedicatedServerAPI *pEngine = fnEngineFactory(VENGINE_DEDICATED_SERVER_API_VERSION, nullptr);
+	IDedicatedServerAPI *pEngine = fnEngineFactory(VENGINE_HLDS_API_VERSION, nullptr);
 	
 	if(pEngine)
 		return EXIT_FAILURE;
 	
 	pEngine->Init();
 	
+	ModInfo_t EngineModInfo{};
+	
+	pEngine->ModInit(EngineModInfo);
+	
 	while(true)
 		pEngine->Frame();
+	
+	pEngine->ModShutdown();
 	
 	pEngine->Shutdown();
 	

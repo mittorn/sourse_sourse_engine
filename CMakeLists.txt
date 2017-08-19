@@ -33,7 +33,7 @@ include_directories(
 
 #add_subdirectory(soundemittersystem)
 
-#add_subdirectory(dedicated)
+add_subdirectory(dedicated)
 add_subdirectory(dedicated_main)
 
 #add_subdirectory(filesystem)
@@ -49,6 +49,6 @@ if(NOT SWDS)
 #add_subdirectory(inputsystem)
 #add_subdirectory(soundsystem)
 
-#add_subdirectory(launcher)
+add_subdirectory(launcher)
 add_subdirectory(launcher_main)
 endif()
