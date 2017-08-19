@@ -17,31 +17,23 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
-// d_zpoint.c: software driver module for drawing z-buffered points
+// in_null.c -- for systems without a mouse
 
 #include "quakedef.h"
-#include "d_local.h"
 
-
-/*
-=====================
-D_DrawZPoint
-=====================
-*/
-void D_DrawZPoint (void)
+void IN_Init (void)
 {
-	byte	*pdest;
-	short	*pz;
-	int		izi;
-	
-	pz = d_pzbuffer + (d_zwidth * r_zpointdesc.v) + r_zpointdesc.u;
-	pdest = d_viewbuffer + d_scantable[r_zpointdesc.v] + r_zpointdesc.u;
-	izi = (int)(r_zpointdesc.zi * 0x8000);
+}
 
-	if (*pz <= izi)
-	{
-		*pz = izi;
-		*pdest = r_zpointdesc.color;
-	}
+void IN_Shutdown (void)
+{
+}
+
+void IN_Commands (void)
+{
+}
+
+void IN_Move (usercmd_t *cmd)
+{
 }
 

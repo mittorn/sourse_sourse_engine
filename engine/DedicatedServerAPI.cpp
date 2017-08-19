@@ -1,4 +1,5 @@
 #include "DedicatedServerAPI.hpp"
+#include "IEngine.hpp"
 
 EXPOSE_SINGLE_INTERFACE(CDedicatedServerAPI, IDedicatedServerAPI, VENGINE_HLDS_API_VERSION)
 
@@ -18,11 +19,13 @@ void *CDedicatedServerAPI::QueryInterface(const char *pInterfaceName)
 
 InitReturnVal_t CDedicatedServerAPI::Init()
 {
+	gpEngine->Init();
 	return INIT_OK;
 };
 
 void CDedicatedServerAPI::Shutdown()
 {
+	gpEngine->Shutdown();
 };
 
 bool CDedicatedServerAPI::ModInit(ModInfo_t &info)
@@ -36,6 +39,7 @@ void CDedicatedServerAPI::ModShutdown()
 
 bool CDedicatedServerAPI::RunFrame()
 {
+	gpEngine->Frame(); // GetEngine()->
 	return true;
 };
 

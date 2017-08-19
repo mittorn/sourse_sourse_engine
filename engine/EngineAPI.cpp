@@ -1,4 +1,5 @@
 #include "EngineAPI.hpp"
+#include "IEngine.hpp"
 
 EXPOSE_SINGLE_INTERFACE(CEngineAPI, IEngineAPI, VENGINE_LAUNCHER_API_VERSION)
 
@@ -18,11 +19,13 @@ void *CEngineAPI::QueryInterface( const char *pInterfaceName )
 
 InitReturnVal_t CEngineAPI::Init()
 {
+	gpEngine->Init();
 	return INIT_OK;
 };
 
 void CEngineAPI::Shutdown()
 {
+	gpEngine->Shutdown();
 };
 
 void CEngineAPI::SetStartupInfo( StartupInfo_t &info )
@@ -31,6 +34,9 @@ void CEngineAPI::SetStartupInfo( StartupInfo_t &info )
 
 int CEngineAPI::Run()
 {
+	while(true)
+		gpEngine->Frame();
+
 	return RUN_OK;
 };
 

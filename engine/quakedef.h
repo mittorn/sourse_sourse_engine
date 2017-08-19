@@ -32,11 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 //define	PARANOID			// speed sapping error checking
 
-#ifdef QUAKE2
-#define	GAMENAME	"id1"		// directory to look in by default
-#else
-#define	GAMENAME	"id1"
-#endif
+#define	GAMENAME "hl2" // directory to look in by default
 
 #include <math.h>
 #include <string.h>
@@ -205,10 +201,6 @@ void	VID_UnlockBuffer (void);
 
 #define	SOUND_CHANNELS		8
 
-// This makes anyone on id's net privileged
-// Use for multiplayer testing only - VERY dangerous!!!
-// #define IDGODS
-
 #include "common.h"
 #include "bspfile.h"
 #include "vid.h"
@@ -226,7 +218,6 @@ typedef struct
 	int		skin;
 	int		effects;
 } entity_state_t;
-
 
 #include "wad.h"
 #include "draw.h"

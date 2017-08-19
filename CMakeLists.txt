@@ -19,6 +19,8 @@ set(CMAKE_CXX_EXTENSIONS ON)
 include_directories(
 	${CMAKE_SOURCE_DIR}/common
 	${CMAKE_SOURCE_DIR}/public
+	${CMAKE_SOURCE_DIR}/public/tier0
+	${CMAKE_SOURCE_DIR}/public/tier1
 )
 
 # Add build targets
@@ -40,7 +42,7 @@ add_subdirectory(dedicated_main)
 #add_subdirectory(networksystem)
 #add_subdirectory(vphysics)
 
-#add_subdirectory(engine)
+add_subdirectory(engine)
 
 #add_subdirectory(game)
 

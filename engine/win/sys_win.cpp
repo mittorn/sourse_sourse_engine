@@ -689,6 +689,7 @@ static char	*empty_string = "";
 HWND		hwnd_dialog;
 
 
+/*
 int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     MSG				msg;
@@ -699,7 +700,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	int				t;
 	RECT			rect;
 
-    /* previous instances do not exist in Win32 */
+    // previous instances do not exist in Win32
     if (hPrevInstance)
         return 0;
 
@@ -851,7 +852,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 
 	oldtime = Sys_FloatTime ();
 
-    /* main window message loop */
+    // main window message loop
 	while (1)
 	{
 		if (isDedicated)
@@ -887,7 +888,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 		oldtime = newtime;
 	}
 
-    /* return success of application */
+    // return success of application
     return TRUE;
 }
-
+*/

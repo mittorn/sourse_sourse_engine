@@ -8,4 +8,6 @@ struct IEngine
 	virtual void Frame() = 0;
 };
 
-extern IEngine *eng;
+extern IEngine *gpEngine;
+
+//extern IEngine *GetEngine();
