@@ -1,0 +1,43 @@
+project(replicasrc-engine)
+
+add_definitions(-DGLQUAKE)
+
+file(GLOB PROJECT_SOURCES
+	${CMAKE_CURRENT_SOURCE_DIR}/*.s
+	${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+)
+
+if(WIN32)
+	set(TARGET_PLATFORM win)
+elseif(UNIX)
+	set(TARGET_PLATFORM linux)
+else()
+	set(TARGET_PLATFORM null)
+endif()
+
+file(GLOB PROJECT_SOURCES_PLATFORM
+	${CMAKE_CURRENT_SOURCE_DIR}/${TARGET_PLATFORM}/*.s
+	${CMAKE_CURRENT_SOURCE_DIR}/${TARGET_PLATFORM}/*.cpp
+)
+
+if(PROJECT_SOURCES_PLATFORM)
+	list(APPEND PROJECT_SOURCES ${PROJECT_SOURCES_PLATFORM})
+endif()
+
+set(PROJECT_SOURCES_EXTERNAL
+	${CMAKE_CURRENT_SOURCE_DIR}/../tier1/interface.cpp
+)
+
+if(PROJECT_SOURCES_EXTERNAL)
+	list(APPEND PROJECT_SOURCES ${PROJECT_SOURCES_EXTERNAL})
+endif()
+
+if(PROJECT_SOURCES)
+	add_library(${PROJECT_NAME} MODULE ${PROJECT_SOURCES})
+	
+	set_target_properties(${PROJECT_NAME} PROPERTIES
+		OUTPUT_NAME "engine"
+	)
+	
+	#target_link_libraries(${PROJECT_NAME} replicasrc-tier1)
+endif()

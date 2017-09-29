@@ -1,0 +1,21 @@
+project(replicasrc-dedicated)
+
+file(GLOB PROJECT_SOURCES
+	${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+)
+
+set(PROJECT_SOURCES_EXTERNAL
+	${CMAKE_CURRENT_SOURCE_DIR}/../tier1/interface.cpp
+)
+
+if(PROJECT_SOURCES_EXTERNAL)
+	list(APPEND PROJECT_SOURCES ${PROJECT_SOURCES_EXTERNAL})
+endif()
+
+if(PROJECT_SOURCES)
+	add_library(${PROJECT_NAME} MODULE ${PROJECT_SOURCES})
+	
+	set_target_properties(${PROJECT_NAME} PROPERTIES
+		OUTPUT_NAME "dedicated"
+	)
+endif()
