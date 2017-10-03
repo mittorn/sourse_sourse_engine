@@ -1,41 +1,47 @@
 #include "soundmixer.hpp"
 
-bool CNullSoundMixer::MixDataToDevice( IAudioDevice *pDevice, channel_t *pChannel, int startSample, int sampleCount, int outputRate, bool forward = true )
+bool CNullSoundMixer::MixDataToDevice( IAudioDevice *pDevice, channel_t *pChannel, int startSample, int sampleCount, int outputRate, bool forward)
 {
 	return true;
 };
 
-void CNullSoundMixer::IncrementSamples( channel_t *pChannel, int startSample, int sampleCount,int outputRate, bool forward = true )
+void CNullSoundMixer::IncrementSamples( channel_t *pChannel, int startSample, int sampleCount,int outputRate, bool forward)
 {
 };
 
-bool CNullSoundMixer::SkipSamples( IAudioDevice *pDevice, channel_t *pChannel, int startSample, int sampleCount, int outputRate, bool forward = true )
+bool CNullSoundMixer::SkipSamples( IAudioDevice *pDevice, channel_t *pChannel, int startSample, int sampleCount, int outputRate, bool forward)
 {
 	return true;
 };
 
 CAudioSource *CNullSoundMixer::GetSource()
 {
-	return nullptr;
+	return mpSource;
 };
 
 int CNullSoundMixer::GetSamplePosition()
 {
-	return 0;
+	return mnPos;
 };
 
 int CNullSoundMixer::GetScubPosition()
 {
-	return 0;
+	return 0; // mnScrubPos
 };
 
 bool CNullSoundMixer::SetSamplePosition( int position, bool scrubbing )
 {
+	mnPos = position;
+	
+	//if(scrubbing)
+		//mnScrubPos = position;
+	
 	return false;
 };
 
 void CNullSoundMixer::SetLoopPosition( int position )
 {
+	mnLoopPos = position;
 };
 
 int CNullSoundMixer::GetStartPosition()
@@ -45,11 +51,12 @@ int CNullSoundMixer::GetStartPosition()
 
 bool CNullSoundMixer::GetActive()
 {
-	return true;
+	return mbActive;
 };
 
 void CNullSoundMixer::SetActive( bool active )
 {
+	mbActive = active;
 };
 
 void CNullSoundMixer::SetModelIndex( int index )
@@ -63,27 +70,30 @@ int CNullSoundMixer::GetModelIndex() const
 
 void CNullSoundMixer::SetDirection( bool forward )
 {
+	mbForward = forward;
 };
 
 bool CNullSoundMixer::GetDirection() const
 {
-	return false;
+	return mbForward;
 };
 
 void CNullSoundMixer::SetAutoDelete( bool autodelete )
 {
+	mbAutoDelete = autodelete;
 };
 
 bool CNullSoundMixer::GetAutoDelete() const
 {
-	return false;
+	return mbAutoDelete;
 };
 
 void CNullSoundMixer::SetVolume( float volume )
 {
+	mfVolume = volume;
 };
 
 channel_t *CNullSoundMixer::GetChannel()
 {
-	return nullptr;
+	return mpChannel;
 };

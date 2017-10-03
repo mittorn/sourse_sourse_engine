@@ -34,5 +34,18 @@ public:
 	bool GetAutoDelete() const override;
 
 	void SetVolume( float volume ) override;
+	
 	channel_t *GetChannel() override;
+private:
+	CAudioSource *mpSource;
+	channel_t *mpChannel;
+	
+	float mfVolume;
+	
+	int mnPos; // sample position in sfx
+	int mnLoopPos; // where to loop, -1 = no looping
+	
+	bool mbActive;
+	bool mbAutoDelete;
+	bool mbForward; // direction
 };

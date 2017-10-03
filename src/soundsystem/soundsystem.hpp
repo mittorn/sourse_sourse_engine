@@ -29,4 +29,5 @@ public:
 
 	void StopAll() override;
 	void StopSound( CAudioMixer *mixer ) override;
+private:
 };

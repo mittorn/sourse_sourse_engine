@@ -5,7 +5,8 @@ file(GLOB PROJECT_SOURCES
 )
 
 set(PROJECT_SOURCES_EXTERNAL
-	${CMAKE_CURRENT_SOURCE_DIR}/../tier1/interface.cpp
+	${REPLICASRC_SRCSDK_PATH}/tier1/interface.cpp
+	${REPLICASRC_SRCSDK_PATH}/tier1/strtools.cpp
 )
 
 if(PROJECT_SOURCES_EXTERNAL)

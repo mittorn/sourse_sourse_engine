@@ -1,4 +1,5 @@
 #include "interface.h"
+#include "engine_hlds_api.h"
 
 #ifdef _MSC_VER
 	#define EXPORT_FUNC [[dllexport]]
@@ -31,7 +32,7 @@ C_EXPORT_FUNC int DedicatedMain(int argc, char **argv)
 	if(fnEngineFactory)
 		return EXIT_FAILURE;
 	
-	IDedicatedServerAPI *pEngine = fnEngineFactory(VENGINE_HLDS_API_VERSION, nullptr);
+	IDedicatedServerAPI *pEngine = (IDedicatedServerAPI*)fnEngineFactory(VENGINE_HLDS_API_VERSION, nullptr);
 	
 	if(pEngine)
 		return EXIT_FAILURE;
@@ -43,7 +44,7 @@ C_EXPORT_FUNC int DedicatedMain(int argc, char **argv)
 	pEngine->ModInit(EngineModInfo);
 	
 	while(true)
-		pEngine->Frame();
+		pEngine->RunFrame();
 	
 	pEngine->ModShutdown();
 	
