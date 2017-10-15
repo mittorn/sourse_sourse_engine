@@ -64,12 +64,12 @@ bool CQueuedLoader::CompleteDynamicLoad()
 	return false;
 };
 
-bool CQueuedLoader::ClaimAnonymousJob( const char *pFilename, QueuedLoaderCallback_t pCallback, void *pContext, void *pContext2 = NULL )
+bool CQueuedLoader::ClaimAnonymousJob( const char *pFilename, QueuedLoaderCallback_t pCallback, void *pContext, void *pContext2)
 {
 	return false;
 };
 
-bool CQueuedLoader::ClaimAnonymousJob( const char *pFilename, void **pData, int *pDataSize, LoaderError_t *pError = NULL )
+bool CQueuedLoader::ClaimAnonymousJob( const char *pFilename, void **pData, int *pDataSize, LoaderError_t *pError)
 {
 	return false;
 };

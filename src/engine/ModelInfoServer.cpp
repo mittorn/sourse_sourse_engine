@@ -65,7 +65,7 @@ bool CModelInfoServer::IsTranslucentTwoPass( const model_t *model ) const
 	return false;
 };
 
-void CModelInfoServer::RecomputeTranslucency( const model_t *model, int nSkin, int nBody, void /*IClientRenderable*/ *pClientRenderable, float fInstanceAlphaModulate=1.0f)
+void CModelInfoServer::RecomputeTranslucency( const model_t *model, int nSkin, int nBody, void /*IClientRenderable*/ *pClientRenderable, float fInstanceAlphaModulate)
 {
 };
 
@@ -198,7 +198,7 @@ void CModelInfoServer::ShutdownDynamicModels() { Warning( "IVModelInfo::Shutdown
 {
 };
 
-void CModelInfoServer::AddDynamicModel( const char *name, int nModelIndex = -1 ) { Warning( "IVModelInfo::AddDynamicModel is now obsolte.\n" ); }
+void CModelInfoServer::AddDynamicModel( const char *name, int nModelIndex) { Warning( "IVModelInfo::AddDynamicModel is now obsolte.\n" ); }
 {
 };
 

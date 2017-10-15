@@ -12,13 +12,13 @@ int CModelRender::DrawModel(  int flags,
 				int skin,
 				int body,
 				int hitboxset,
-				const matrix3x4_t *modelToWorld = NULL,
-				const matrix3x4_t *pLightingOffset = NULL )
+				const matrix3x4_t *modelToWorld,
+				const matrix3x4_t *pLightingOffset)
 {
 	return 0;
 };
 
-void CModelRender::ForcedMaterialOverride( IMaterial *newMaterial, OverrideType_t nOverrideType = OVERRIDE_NORMAL )
+void CModelRender::ForcedMaterialOverride( IMaterial *newMaterial, OverrideType_t nOverrideType)
 {
 };
 
@@ -26,7 +26,7 @@ void CModelRender::SetViewTarget( const CStudioHdr *pStudioHdr, int nBodyIndex, 
 {
 };
 
-ModelInstanceHandle_t CModelRender::CreateInstance( IClientRenderable *pRenderable, LightCacheHandle_t *pCache = NULL )
+ModelInstanceHandle_t CModelRender::CreateInstance( IClientRenderable *pRenderable, LightCacheHandle_t *pCache)
 {
 	return MODEL_INSTANCE_INVALID;
 };
@@ -50,7 +50,7 @@ bool CModelRender::ChangeInstance( ModelInstanceHandle_t handle, IClientRenderab
 };
 
 void CModelRender::AddDecal( ModelInstanceHandle_t handle, Ray_t const& ray, 
-	Vector const& decalUp, int decalIndex, int body, bool noPokeThru = false, int maxLODToDecal = ADDDECAL_TO_ALL_LODS )
+	Vector const& decalUp, int decalIndex, int body, bool noPokeThru, int maxLODToDecal )
 {
 };
 
@@ -62,12 +62,12 @@ void CModelRender::RemoveAllDecalsFromAllModels()
 {
 };
 
-matrix3x4_t* CModelRender::DrawModelShadowSetup( IClientRenderable *pRenderable, int body, int skin, DrawModelInfo_t *pInfo, matrix3x4_t *pCustomBoneToWorld = NULL )
+matrix3x4_t* CModelRender::DrawModelShadowSetup( IClientRenderable *pRenderable, int body, int skin, DrawModelInfo_t *pInfo, matrix3x4_t *pCustomBoneToWorld)
 {
 	return nullptr;
 };
 
-void CModelRender::DrawModelShadow(IClientRenderable *pRenderable, const DrawModelInfo_t &info, matrix3x4_t *pCustomBoneToWorld = NULL )
+void CModelRender::DrawModelShadow(IClientRenderable *pRenderable, const DrawModelInfo_t &info, matrix3x4_t *pCustomBoneToWorld)
 {
 };
 
@@ -99,7 +99,7 @@ bool CModelRender::DrawModelSetup( ModelRenderInfo_t &pInfo, DrawModelState_t *p
 	return false;
 };
 
-void CModelRender::DrawModelExecute( const DrawModelState_t &state, const ModelRenderInfo_t &pInfo, matrix3x4_t *pCustomBoneToWorld = NULL )
+void CModelRender::DrawModelExecute( const DrawModelState_t &state, const ModelRenderInfo_t &pInfo, matrix3x4_t *pCustomBoneToWorld)
 {
 };
 
@@ -121,6 +121,6 @@ void CModelRender::SetupColorMeshes( int nTotalVerts )
 };
 
 void CModelRender::AddColoredDecal( ModelInstanceHandle_t handle, Ray_t const& ray, 
-	Vector const& decalUp, int decalIndex, int body, Color cColor, bool noPokeThru = false, int maxLODToDecal = ADDDECAL_TO_ALL_LODS )
+	Vector const& decalUp, int decalIndex, int body, Color cColor, bool noPokeThru, int maxLODToDecal)
 {
 };

@@ -25,12 +25,12 @@ void CGameEventManager2::RemoveListener( IGameEventListener2 *listener)
 {
 };
 
-IGameEvent *CGameEventManager2::CreateEvent( const char *name, bool bForce = false )
+IGameEvent *CGameEventManager2::CreateEvent( const char *name, bool bForce)
 {
 	return nullptr;
 };
 
-bool CGameEventManager2::FireEvent( IGameEvent *event, bool bDontBroadcast = false )
+bool CGameEventManager2::FireEvent( IGameEvent *event, bool bDontBroadcast)
 {
 	return false;
 };

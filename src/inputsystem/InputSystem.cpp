@@ -1,4 +1,4 @@
-#include "inputsystem.hpp"
+#include "InputSystem.hpp"
 
 bool CInputSystem::Connect( CreateInterfaceFn factory )
 {
@@ -11,11 +11,15 @@ void CInputSystem::Disconnect()
 
 void *CInputSystem::QueryInterface( const char *pInterfaceName )
 {
+	if(!strcmp(pInterfaceName, INPUTSYSTEM_INTERFACE_VERSION)
+		return static_cast<IInputSystem*>(this);
+	
 	return nullptr;
 };
 
 InitReturnVal_t CInputSystem::Init()
 {
+	return INIT_OK;
 };
 
 void CInputSystem::Shutdown()

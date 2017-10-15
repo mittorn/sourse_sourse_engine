@@ -2,11 +2,11 @@
 
 #include "filesystem.h"
 
-class CFileSystem final : public IFileSystem
+class CBaseFileSystem final : public IFileSystem
 {
 public:
-	CFileSystem() = default;
-	~CFileSystem() = default;
+	CBaseFileSystem() = default;
+	~CBaseFileSystem() = default;
 	
 	// IAppSystem
 	

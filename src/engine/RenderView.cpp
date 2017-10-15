@@ -52,7 +52,7 @@ IWorldRenderList *CRenderView::CreateWorldList()
 	return nullptr;
 };
 
-void CRenderView::BuildWorldLists( IWorldRenderList *pList, WorldListInfo_t* pInfo, int iForceFViewLeaf, const VisOverrideData_t* pVisData = NULL, bool bShadowDepth = false, float *pReflectionWaterHeight = NULL )
+void CRenderView::BuildWorldLists( IWorldRenderList *pList, WorldListInfo_t* pInfo, int iForceFViewLeaf, const VisOverrideData_t* pVisData, bool bShadowDepth, float *pReflectionWaterHeight)
 {
 };
 

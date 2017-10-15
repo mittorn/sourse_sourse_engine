@@ -1,6 +1,0 @@
-#include "FileSystem.hpp"
-
-static CFileSystem gFileSystem;
-
-EXPOSE_SINGLE_INTERFACE_GLOBALVAR(CFileSystem, IFileSystem, BASEFILESYSTEM_INTERFACE_VERSION, gFileSystem)
-EXPOSE_SINGLE_INTERFACE_GLOBALVAR(CFileSystem, IFileSystem, FILESYSTEM_INTERFACE_VERSION, gFileSystem)

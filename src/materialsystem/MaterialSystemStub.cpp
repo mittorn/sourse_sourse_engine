@@ -28,7 +28,7 @@ void CMaterialSystemStub::Shutdown()
 CreateInterfaceFn CMaterialSystemStub::Init( char const* pShaderAPIDLL, 
 	IMaterialProxyFactory *pMaterialProxyFactory,
 	CreateInterfaceFn fileSystemFactory,
-	CreateInterfaceFn cvarFactory=NULL )
+	CreateInterfaceFn cvarFactory)
 {
 	return nullptr;
 };
@@ -49,7 +49,7 @@ void CMaterialSystemStub::ModShutdown()
 {
 };
 
-void CMaterialSystemStub::SetThreadMode( MaterialThreadMode_t mode, int nServiceThread = -1 )
+void CMaterialSystemStub::SetThreadMode( MaterialThreadMode_t mode, int nServiceThread)
 {
 };
 
@@ -181,7 +181,7 @@ void CMaterialSystemStub::EndFrame()
 {
 };
 
-void CMaterialSystemStub::Flush( bool flushHardware = false )
+void CMaterialSystemStub::Flush( bool flushHardware)
 {
 };
 
@@ -217,7 +217,7 @@ void CMaterialSystemStub::RemoveRestoreFunc( MaterialBufferRestoreFunc_t func )
 {
 };
 
-void CMaterialSystemStub::ResetTempHWMemory( bool bExitingLevel = false )
+void CMaterialSystemStub::ResetTempHWMemory( bool bExitingLevel)
 {
 };
 
@@ -296,7 +296,7 @@ void CMaterialSystemStub::UncacheAllMaterials()
 {
 };
 
-void CMaterialSystemStub::UncacheUnusedMaterials( bool bRecomputeStateSnapshots = false )
+void CMaterialSystemStub::UncacheUnusedMaterials( bool bRecomputeStateSnapshots)
 {
 };
 
@@ -308,7 +308,7 @@ void CMaterialSystemStub::ReloadTextures()
 {
 };
 
-void CMaterialSystemStub::ReloadMaterials( const char *pSubString = NULL )
+void CMaterialSystemStub::ReloadMaterials( const char *pSubString)
 {
 };
 
@@ -317,7 +317,7 @@ IMaterial *CMaterialSystemStub::CreateMaterial( const char *pMaterialName, KeyVa
 	return nullptr;
 };
 
-IMaterial *CMaterialSystemStub::FindMaterial( char const* pMaterialName, const char *pTextureGroupName, bool complain = true, const char *pComplainPrefix = NULL )
+IMaterial *CMaterialSystemStub::FindMaterial( char const* pMaterialName, const char *pTextureGroupName, bool complain, const char *pComplainPrefix)
 {
 	return nullptr;
 };
@@ -356,7 +356,7 @@ void CMaterialSystemStub::SetAsyncTextureLoadCache( void* hFileCache )
 {
 };
 
-ITexture *CMaterialSystemStub::FindTexture( char const* pTextureName, const char *pTextureGroupName, bool complain = true, int nAdditionalCreationFlags = 0  )
+ITexture *CMaterialSystemStub::FindTexture( char const* pTextureName, const char *pTextureGroupName, bool complain, int nAdditionalCreationFlags)
 {
 	return nullptr;
 };
@@ -388,7 +388,7 @@ ITexture *CMaterialSystemStub::CreateRenderTargetTexture( int w,
 	int h, 
 	RenderTargetSizeMode_t sizeMode,
 	ImageFormat	format, 
-	MaterialRenderTargetDepth_t depth = MATERIAL_RT_DEPTH_SHARED )
+	MaterialRenderTargetDepth_t depth)
 {
 	return nullptr;
 };
@@ -398,9 +398,9 @@ ITexture *CMaterialSystemStub::CreateNamedRenderTargetTextureEx(  const char *pR
 	int h, 
 	RenderTargetSizeMode_t sizeMode,
 	ImageFormat format, 
-	MaterialRenderTargetDepth_t depth = MATERIAL_RT_DEPTH_SHARED, 
-	unsigned int textureFlags = TEXTUREFLAGS_CLAMPS | TEXTUREFLAGS_CLAMPT,
-	unsigned int renderTargetFlags = 0 )
+	MaterialRenderTargetDepth_t depth, 
+	unsigned int textureFlags,
+	unsigned int renderTargetFlags)
 {
 	return nullptr;
 };
@@ -410,9 +410,9 @@ ITexture *CMaterialSystemStub::CreateNamedRenderTargetTexture( const char *pRTNa
 	int h, 
 	RenderTargetSizeMode_t sizeMode,
 	ImageFormat format, 
-	MaterialRenderTargetDepth_t depth = MATERIAL_RT_DEPTH_SHARED, 
-	bool bClampTexCoords = true, 
-	bool bAutoMipMap = false )
+	MaterialRenderTargetDepth_t depth, 
+	bool bClampTexCoords, 
+	bool bAutoMipMap)
 {
 	return nullptr;
 };
@@ -422,9 +422,9 @@ ITexture *CMaterialSystemStub::CreateNamedRenderTargetTextureEx2( const char *pR
 	int h, 
 	RenderTargetSizeMode_t sizeMode,
 	ImageFormat format, 
-	MaterialRenderTargetDepth_t depth = MATERIAL_RT_DEPTH_SHARED, 
-	unsigned int textureFlags = TEXTUREFLAGS_CLAMPS | TEXTUREFLAGS_CLAMPT,
-	unsigned int renderTargetFlags = 0 )
+	MaterialRenderTargetDepth_t depth, 
+	unsigned int textureFlags,
+	unsigned int renderTargetFlags)
 {
 	return nullptr;
 };
@@ -471,7 +471,7 @@ void CMaterialSystemStub::ResetMaterialLightmapPageInfo()
 {
 };
 
-void CMaterialSystemStub::ClearBuffers( bool bClearColor, bool bClearDepth, bool bClearStencil = false )
+void CMaterialSystemStub::ClearBuffers( bool bClearColor, bool bClearDepth, bool bClearStencil)
 {
 };
 
@@ -613,7 +613,7 @@ bool CMaterialSystemStub::AllowThreading( bool bAllow, int nServiceThread )
 	return false;
 };
 
-IMaterial *CMaterialSystemStub::FindMaterialEx( char const* pMaterialName, const char *pTextureGroupName, int nContext, bool complain = true, const char *pComplainPrefix = NULL )
+IMaterial *CMaterialSystemStub::FindMaterialEx( char const* pMaterialName, const char *pTextureGroupName, int nContext, bool complain, const char *pComplainPrefix)
 {
 	return nullptr;
 };
@@ -646,12 +646,12 @@ void CMaterialSystemStub::OverrideRenderTargetAllocation( bool rtAlloc )
 {
 };
 
-ITextureCompositor*	CMaterialSystemStub::NewTextureCompositor( int w, int h, const char* pCompositeName, int nTeamNum, uint64 randomSeed, KeyValues* stageDesc, uint32 texCompositeCreateFlags = 0 )
+ITextureCompositor*	CMaterialSystemStub::NewTextureCompositor( int w, int h, const char* pCompositeName, int nTeamNum, uint64 randomSeed, KeyValues* stageDesc, uint32 texCompositeCreateFlags)
 {
 	return nullptr;
 };
 
-void CMaterialSystemStub::AsyncFindTexture( const char* pFilename, const char *pTextureGroupName, IAsyncTextureOperationReceiver* pRecipient, void* pExtraArgs, bool bComplain = true, int nAdditionalCreationFlags = 0 )
+void CMaterialSystemStub::AsyncFindTexture( const char* pFilename, const char *pTextureGroupName, IAsyncTextureOperationReceiver* pRecipient, void* pExtraArgs, bool bComplain, int nAdditionalCreationFlags)
 {
 };
 

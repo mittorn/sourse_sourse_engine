@@ -37,7 +37,7 @@ void CEngineClient::GetScreenSize( int& width, int& height )
 {
 };
 
-void CEngineClient::ServerCmd( const char *szCmdString, bool bReliable = true )
+void CEngineClient::ServerCmd( const char *szCmdString, bool bReliable)
 {
 };
 
@@ -70,7 +70,7 @@ int CEngineClient::GetLocalPlayer()
 	return 1;
 };
 
-const model_t *CEngineClient::LoadModel( const char *pName, bool bProp = false )
+const model_t *CEngineClient::LoadModel( const char *pName, bool bProp)
 {
 	return nullptr;
 };
@@ -327,7 +327,7 @@ float CEngineClient::SentenceLength( int sentenceIndex );
 	return 0.0f;
 };
 
-void CEngineClient::ComputeLighting( const Vector& pt, const Vector* pNormal, bool bClamp, Vector& color, Vector *pBoxColors=NULL )
+void CEngineClient::ComputeLighting( const Vector& pt, const Vector* pNormal, bool bClamp, Vector& color, Vector *pBoxColors)
 {
 };
 
@@ -535,7 +535,7 @@ void CEngineClient::ChangeTeam( const char *pTeamName )
 {
 };
 
-void CEngineClient::ReadConfiguration( const bool readDefault = false ) 
+void CEngineClient::ReadConfiguration( const bool readDefault) 
 {
 };
 
@@ -603,7 +603,7 @@ CGamestatsData *CEngineClient::GetGamestatsData()
 };
 
 #if defined( USE_SDL )
-void CEngineClient::GetMouseDelta( int &x, int &y, bool bIgnoreNextMouseDelta = false )
+void CEngineClient::GetMouseDelta( int &x, int &y, bool bIgnoreNextMouseDelta)
 {
 };
 #endif

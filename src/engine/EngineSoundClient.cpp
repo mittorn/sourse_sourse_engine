@@ -2,7 +2,7 @@
 
 EXPOSE_SINGLE_INTERFACE(CEngineSoundClient, IEngineSound, IENGINESOUND_CLIENT_INTERFACE_VERSION)
 
-bool CEngineSoundClient::PrecacheSound( const char *pSample, bool bPreload = false, bool bIsUISound = false )
+bool CEngineSoundClient::PrecacheSound( const char *pSample, bool bPreload, bool bIsUISound)
 {
 	return true;
 };
@@ -22,20 +22,20 @@ float CEngineSoundClient::GetSoundDuration( const char *pSample )
 };
 
 void CEngineSoundClient::EmitSound( IRecipientFilter& filter, int iEntIndex, int iChannel, const char *pSample, 
-	float flVolume, float flAttenuation, int iFlags = 0, int iPitch = PITCH_NORM, int iSpecialDSP = 0, 
-	const Vector *pOrigin = NULL, const Vector *pDirection = NULL, CUtlVector< Vector >* pUtlVecOrigins = NULL, bool bUpdatePositions = true, float soundtime = 0.0f, int speakerentity = -1 )
+	float flVolume, float flAttenuation, int iFlags, int iPitch, int iSpecialDSP, 
+	const Vector *pOrigin, const Vector *pDirection, CUtlVector< Vector >* pUtlVecOrigins, bool bUpdatePositions, float soundtime, int speakerentity)
 {
 };
 
 void CEngineSoundClient::EmitSound( IRecipientFilter& filter, int iEntIndex, int iChannel, const char *pSample, 
-	float flVolume, soundlevel_t iSoundlevel, int iFlags = 0, int iPitch = PITCH_NORM, int iSpecialDSP = 0, 
-	const Vector *pOrigin = NULL, const Vector *pDirection = NULL, CUtlVector< Vector >* pUtlVecOrigins = NULL, bool bUpdatePositions = true, float soundtime = 0.0f, int speakerentity = -1 )
+	float flVolume, soundlevel_t iSoundlevel, int iFlags, int iPitch, int iSpecialDSP, 
+	const Vector *pOrigin, const Vector *pDirection, CUtlVector< Vector >* pUtlVecOrigins, bool bUpdatePositions, float soundtime, int speakerentity)
 {
 };
 
 void CEngineSoundClient::EmitSentenceByIndex( IRecipientFilter& filter, int iEntIndex, int iChannel, int iSentenceIndex, 
-	float flVolume, soundlevel_t iSoundlevel, int iFlags = 0, int iPitch = PITCH_NORM,int iSpecialDSP = 0, 
-	const Vector *pOrigin = NULL, const Vector *pDirection = NULL, CUtlVector< Vector >* pUtlVecOrigins = NULL, bool bUpdatePositions = true, float soundtime = 0.0f, int speakerentity = -1 )
+	float flVolume, soundlevel_t iSoundlevel, int iFlags, int iPitch, int iSpecialDSP, 
+	const Vector *pOrigin, const Vector *pDirection, CUtlVector< Vector >* pUtlVecOrigins, bool bUpdatePositions, float soundtime, int speakerentity)
 {
 };
 
@@ -55,7 +55,7 @@ void CEngineSoundClient::SetPlayerDSP( IRecipientFilter& filter, int dspType, bo
 {
 };
 
-void CEngineSoundClient::EmitAmbientSound( const char *pSample, float flVolume, int iPitch = PITCH_NORM, int flags = 0, float soundtime = 0.0f )
+void CEngineSoundClient::EmitAmbientSound( const char *pSample, float flVolume, int iPitch, int flags, float soundtime)
 {
 };
 

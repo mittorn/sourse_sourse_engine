@@ -21,22 +21,22 @@ int CEngineServer::IsInEditMode()
 	return 0;
 };
 
-int CEngineServer::PrecacheModel( const char *s, bool preload = false )
+int CEngineServer::PrecacheModel( const char *s, bool preload)
 {
 	return -1;
 };
 
-int CEngineServer::PrecacheSentenceFile( const char *s, bool preload = false )
+int CEngineServer::PrecacheSentenceFile( const char *s, bool preload)
 {
 	return -1;
 };
 
-int CEngineServer::PrecacheDecal( const char *name, bool preload = false )
+int CEngineServer::PrecacheDecal( const char *name, bool preload)
 {
 	return -1;
 };
 
-int CEngineServer::PrecacheGeneric( const char *s, bool preload = false )
+int CEngineServer::PrecacheGeneric( const char *s, bool preload)
 {
 	return -1;
 };
@@ -106,7 +106,7 @@ INetChannelInfo *CEngineServer::GetPlayerNetInfo( int playerIndex )
 	return nullptr;
 };
 
-edict_t *CEngineServer::CreateEdict( int iForceEdictIndex = -1 )
+edict_t *CEngineServer::CreateEdict( int iForceEdictIndex)
 {
 	return nullptr;
 };
@@ -133,7 +133,7 @@ void CEngineServer::SaveFreeMemory( void *pSaveMem )
 {
 };
 
-void CEngineServer::EmitAmbientSound( int entindex, const Vector &pos, const char *samp, float vol, soundlevel_t soundlevel, int fFlags, int pitch, float delay = 0.0f )
+void CEngineServer::EmitAmbientSound( int entindex, const Vector &pos, const char *samp, float vol, soundlevel_t soundlevel, int fFlags, int pitch, float delay)
 {
 };
 
@@ -534,7 +534,7 @@ int CEngineServer::GetAllClusterBounds( bbox_t *pBBoxList, int maxBBox )
 	return 0;
 };
 
-edict_t *CEngineServer::CreateFakeClientEx( const char *netname, bool bReportFakeClient = true )
+edict_t *CEngineServer::CreateFakeClientEx( const char *netname, bool bReportFakeClient)
 {
 	return nullptr;
 };

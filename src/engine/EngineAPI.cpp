@@ -14,6 +14,9 @@ void CEngineAPI::Disconnect()
 
 void *CEngineAPI::QueryInterface( const char *pInterfaceName )
 {
+	if(!strcmp(pInterfaceName, VENGINE_LAUNCHER_API_VERSION))
+		return static_cast<IEngineAPI*>(this);
+	
 	return nullptr;
 };
 
@@ -30,6 +33,7 @@ void CEngineAPI::Shutdown()
 
 void CEngineAPI::SetStartupInfo( StartupInfo_t &info )
 {
+	//mStartupInfo = info;
 };
 
 int CEngineAPI::Run()
@@ -42,21 +46,26 @@ int CEngineAPI::Run()
 
 void CEngineAPI::SetEngineWindow( void *hWnd )
 {
+	//mainwindow = (WinHandle_t)hWnd;
 };
 
 void CEngineAPI::PostConsoleCommand( const char *pConsoleCommand )
 {
+	//Cbuf_AddText(pConsoleCommand);
 };
 
 bool CEngineAPI::IsRunningSimulation() const
 {
+	//return mbSimulationActive;
 	return true;
 };
 
 void CEngineAPI::ActivateSimulation( bool bActive )
 {
+	//mbSimulationActive = bActive;
 };
 
 void CEngineAPI::SetMap( const char *pMapName )
 {
+	//Cbuf_AddText("changelevel %s", pMapName);
 };

@@ -37,20 +37,16 @@ void CDataCache::SetSectionLimits( const char *pszSectionName, const DataCacheLi
 {
 };
 
-void CDataCache::GetStatus( DataCacheStatus_t *pStatus, DataCacheLimits_t *pLimits = NULL )
+void CDataCache::GetStatus( DataCacheStatus_t *pStatus, DataCacheLimits_t *pLimits)
 {
 };
 
-IDataCacheSection *CDataCache::AddSection( IDataCacheClient *pClient, const char *pszSectionName, const DataCacheLimits_t &limits = DataCacheLimits_t(), bool bSupportFastFind = false )
+IDataCacheSection *CDataCache::AddSection( IDataCacheClient *pClient, const char *pszSectionName, const DataCacheLimits_t &limits, bool bSupportFastFind)
 {
 	return nullptr;
 };
 
-void CDataCache::RemoveSection( const char *pszClientName, bool bCallFlush = true )
-{
-};
-
-void CDataCache::RemoveSection( IDataCacheSection *pSection, bool bCallFlush = true )	{ if ( pSection) RemoveSection( pSection->GetName() ); }
+void CDataCache::RemoveSection( const char *pszClientName, bool bCallFlush)
 {
 };
 
@@ -64,11 +60,11 @@ unsigned CDataCache::Purge( unsigned nBytes )
 	return 0;
 };
 
-unsigned CDataCache::Flush( bool bUnlockedOnly = true, bool bNotify = true )
+unsigned CDataCache::Flush( bool bUnlockedOnly, bool bNotify)
 {
 	return 0;
 };
 
-void CDataCache::OutputReport( DataCacheReportType_t reportType = DC_SUMMARY_REPORT, const char *pszSection = NULL )
+void CDataCache::OutputReport( DataCacheReportType_t reportType, const char *pszSection)
 {
 };
