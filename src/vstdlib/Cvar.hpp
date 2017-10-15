@@ -31,7 +31,7 @@ public:
 	ConCommand *FindCommand( const char *name ) override;
 	const ConCommand *FindCommand( const char *name ) const override;
 
-	ConCommandBase	*GetCommands() override;
+	ConCommandBase *GetCommands() override;
 	const ConCommandBase *GetCommands() const override;
 
 	void InstallGlobalChangeCallback( FnChangeCallback_t callback ) override;
@@ -48,11 +48,11 @@ public:
 
 	void InstallCVarQuery( ICvarQuery *pQuery ) override;
 
-#if defined( _X360 )
-	void PublishToVXConsole( ) override;
+#ifdef _X360
+	void PublishToVXConsole() override;
 #endif
 
-	bool IsMaterialThreadSetAllowed( ) const override;
+	bool IsMaterialThreadSetAllowed() const override;
 	void QueueMaterialThreadSetValue( ConVar *pConVar, const char *pValue ) override;
 	void QueueMaterialThreadSetValue( ConVar *pConVar, int nValue ) override;
 	void QueueMaterialThreadSetValue( ConVar *pConVar, float flValue ) override;

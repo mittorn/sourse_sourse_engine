@@ -1,5 +1,7 @@
 project(replicasrc-vstdlib)
 
+add_definitions(-DVSTDLIB_DLL_EXPORT)
+
 file(GLOB PROJECT_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
 )

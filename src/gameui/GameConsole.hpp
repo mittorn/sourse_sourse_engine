@@ -1,6 +1,6 @@
 #pragma once
 
-#include "common/IGameConsole.h"
+#include "common/GameUI/IGameConsole.h"
 
 class CGameConsole final : public IGameConsole
 {
