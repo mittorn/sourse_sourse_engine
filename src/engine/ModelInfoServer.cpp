@@ -185,35 +185,6 @@ bool CModelInfoServer::IsUsingFBTexture( const model_t *model, int nSkin, int nB
 	return false;
 };
 
-const model_t *CModelInfoServer::FindOrLoadModel( const char *name ) { Warning( "IVModelInfo::FindOrLoadModel is now obsolte.\n" ); return NULL; }
-{
-	return nullptr;
-};
-
-void CModelInfoServer::InitDynamicModels() { Warning( "IVModelInfo::InitDynamicModels is now obsolte.\n" ); }
-{
-};
-
-void CModelInfoServer::ShutdownDynamicModels() { Warning( "IVModelInfo::ShutdownDynamicModels is now obsolte.\n" ); }
-{
-};
-
-void CModelInfoServer::AddDynamicModel( const char *name, int nModelIndex) { Warning( "IVModelInfo::AddDynamicModel is now obsolte.\n" ); }
-{
-};
-
-void CModelInfoServer::ReferenceModel( int modelindex ) { Warning( "IVModelInfo::ReferenceModel is now obsolte.\n" ); }
-{
-};
-
-void CModelInfoServer::UnreferenceModel( int modelindex ) { Warning( "IVModelInfo::UnreferenceModel is now obsolte.\n" ); }
-{
-};
-
-void CModelInfoServer::CleanupDynamicModels( bool bForce = false ) { Warning( "IVModelInfo::CleanupDynamicModels is now obsolte.\n" ); }
-{
-};
-
 MDLHandle_t CModelInfoServer::GetCacheHandle( const model_t *model ) const
 {
 	return 0;

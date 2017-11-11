@@ -1,6 +1,8 @@
 #include <cstdio>
 #include "Cvar.hpp"
 
+EXPOSE_SINGLE_INTERFACE(CCvar, ICvar, CVAR_INTERFACE_VERSION)
+
 bool CCvar::Connect( CreateInterfaceFn factory )
 {
 	return true;
