@@ -116,15 +116,15 @@ void CCvar::RemoveConsoleDisplayFunc( IConsoleDisplayFunc* pDisplayFunc )
 {
 };
 
-void CCvar::ConsoleColorPrintf( const Color& clr, PRINTF_FORMAT_STRING const char *pFormat, ... ) const FMTFUNCTION( 3, 4 )
+void CCvar::ConsoleColorPrintf( const Color& clr, PRINTF_FORMAT_STRING const char *pFormat, ... ) const
 {
 };
 
-void CCvar::ConsolePrintf( PRINTF_FORMAT_STRING const char *pFormat, ... ) const FMTFUNCTION( 2, 3 )
+void CCvar::ConsolePrintf( PRINTF_FORMAT_STRING const char *pFormat, ... ) const
 {
 };
 
-void CCvar::ConsoleDPrintf( PRINTF_FORMAT_STRING const char *pFormat, ... ) const FMTFUNCTION( 2, 3 )
+void CCvar::ConsoleDPrintf( PRINTF_FORMAT_STRING const char *pFormat, ... ) const
 {
 };
 
@@ -170,7 +170,9 @@ int CCvar::ProcessQueuedMaterialThreadConVarSets()
 	return 0;
 };
 
+/*
 ICVarIteratorInternal *CCvar::FactoryInternalIterator()
 {
 	return nullptr;
 };
+*/

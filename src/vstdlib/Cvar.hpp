@@ -40,9 +40,9 @@ public:
 
 	void InstallConsoleDisplayFunc( IConsoleDisplayFunc* pDisplayFunc ) override;
 	void RemoveConsoleDisplayFunc( IConsoleDisplayFunc* pDisplayFunc ) override;
-	void ConsoleColorPrintf( const Color& clr, PRINTF_FORMAT_STRING const char *pFormat, ... ) const FMTFUNCTION( 3, 4 ) override;
-	void ConsolePrintf( PRINTF_FORMAT_STRING const char *pFormat, ... ) const FMTFUNCTION( 2, 3 ) override;
-	void ConsoleDPrintf( PRINTF_FORMAT_STRING const char *pFormat, ... ) const FMTFUNCTION( 2, 3 ) override;
+	FMTFUNCTION( 3, 4 ) void ConsoleColorPrintf( const Color& clr, PRINTF_FORMAT_STRING const char *pFormat, ... ) const override;
+	FMTFUNCTION( 2, 3 ) void ConsolePrintf( PRINTF_FORMAT_STRING const char *pFormat, ... ) const override;
+	FMTFUNCTION( 2, 3 ) void ConsoleDPrintf( PRINTF_FORMAT_STRING const char *pFormat, ... ) const override;
 
 	void RevertFlaggedConVars( int nFlag ) override;
 
@@ -59,5 +59,5 @@ public:
 	bool HasQueuedMaterialThreadConVarSets() const override;
 	int ProcessQueuedMaterialThreadConVarSets() override;
 
-	ICVarIteratorInternal *FactoryInternalIterator() override;
+	ICVarIteratorInternal *FactoryInternalIterator() override {return nullptr;}
 };
