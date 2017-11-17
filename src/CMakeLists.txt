@@ -12,6 +12,8 @@ add_subdirectory(tier0) # blank
 #add_subdirectory(scenefilecache) # unresolved
 
 #add_subdirectory(soundemittersystem) # broken
+add_subdirectory(materialsystem)
+add_subdirectory(replay)
 
 #add_subdirectory(dedicated) # broken
 add_subdirectory(dedicated_main)
@@ -26,8 +28,10 @@ add_subdirectory(networksystem) # blank
 
 if(NOT SWDS)
 	#add_subdirectory(gameui) # broken
+	add_subdirectory(haptics)
 	#add_subdirectory(inputsystem) # broken
 	#add_subdirectory(soundsystem) # broken
+	add_subdirectory(studiorender)
 
 	#add_subdirectory(launcher) # broken
 	add_subdirectory(launcher_main)

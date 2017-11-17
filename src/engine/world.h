@@ -17,7 +17,10 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+
 // world.h
+
+#pragma once
 
 typedef struct
 {
@@ -41,8 +44,7 @@ typedef struct
 #define	MOVE_NOMONSTERS	1
 #define	MOVE_MISSILE	2
 
-
-void SV_ClearWorld (void);
+void SV_ClearWorld ();
 // called after the world model has been loaded, before linking any entities
 
 void SV_UnlinkEdict (edict_t *ent);

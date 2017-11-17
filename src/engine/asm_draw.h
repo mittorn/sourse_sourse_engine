@@ -17,11 +17,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+
 //
 // asm_draw.h
 //
 // Include file for asm drawing routines.
 //
+
+#pragma once
 
 //
 // !!! note that this file must match the corresponding C structures at all
@@ -148,4 +151,3 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define mtri_size			16	// !!! if this changes, array indexing in !!!
 								// !!! d_polysa.s must be changed to match !!!
 #define mtri_shift			4
-

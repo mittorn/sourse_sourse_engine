@@ -18,6 +18,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
+#pragma once
 
 // upper design bounds
 
@@ -286,7 +287,7 @@ int CompressVis (byte *vis, byte *dest);
 
 void	LoadBSPFile (char *filename);
 void	WriteBSPFile (char *filename);
-void	PrintBSPFileSizes (void);
+void	PrintBSPFileSizes ();
 
 //===============
 
@@ -309,8 +310,8 @@ typedef struct
 extern	int			num_entities;
 extern	entity_t	entities[MAX_MAP_ENTITIES];
 
-void	ParseEntities (void);
-void	UnparseEntities (void);
+void	ParseEntities ();
+void	UnparseEntities ();
 
 void 	SetKeyValue (entity_t *ent, char *key, char *value);
 char 	*ValueForKey (entity_t *ent, char *key);
@@ -319,6 +320,6 @@ char 	*ValueForKey (entity_t *ent, char *key);
 vec_t	FloatForKey (entity_t *ent, char *key);
 void 	GetVectorForKey (entity_t *ent, char *key, vec3_t vec);
 
-epair_t *ParseEpair (void);
+epair_t *ParseEpair ();
 
 #endif
