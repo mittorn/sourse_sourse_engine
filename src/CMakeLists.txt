@@ -15,14 +15,14 @@ add_subdirectory(tier0) # blank
 add_subdirectory(materialsystem)
 add_subdirectory(replay)
 
-#add_subdirectory(dedicated) # broken
+#add_subdirectory(dedicated) # unresolved (should be linked with tier0, tier1 and vstdlib)
 add_subdirectory(dedicated_main)
 
 #add_subdirectory(filesystem) # broken
 add_subdirectory(networksystem) # blank
 #add_subdirectory(vphysics)
 
-#add_subdirectory(engine)
+add_subdirectory(engine) # broken
 
 #add_subdirectory(game)
 

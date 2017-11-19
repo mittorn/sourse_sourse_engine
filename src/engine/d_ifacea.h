@@ -17,11 +17,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+
 //
 // d_ifacea.h
 //
 // Include file for asm driver interface.
 //
+
+#pragma once
 
 //
 // !!! note that this file must match the corresponding C structures in
@@ -95,4 +98,3 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define atd_drawtype		28
 #define atd_seamfixupX16	32
 #define atd_size			36
-

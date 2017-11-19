@@ -24,8 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 // FIXME: clean up and move into d_iface.h
 
-#ifndef _R_SHARED_H_
-#define _R_SHARED_H_
+#pragma once
 
 #define	MAXVERTS	16					// max points in a surface polygon
 #define MAXWORKINGVERTS	(MAXVERTS+4)	// max points in an intermediate
@@ -126,7 +125,7 @@ extern void SetUpForLineScan(fixed8_t startvertu, fixed8_t startvertv,
 	fixed8_t endvertu, fixed8_t endvertv);
 
 extern int	r_skymade;
-extern void R_MakeSky (void);
+extern void R_MakeSky ();
 
 extern int	ubasestep, errorterm, erroradjustup, erroradjustdown;
 
@@ -152,7 +151,5 @@ typedef struct edge_s
 	float			nearzi;
 	medge_t			*owner;
 } edge_t;
-
-#endif	// _R_SHARED_H_
 
 #endif	// GLQUAKE

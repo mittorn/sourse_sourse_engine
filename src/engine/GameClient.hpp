@@ -1,8 +1,11 @@
 #pragma once
 
-class CGameClient final //: public IClient
+#include "BaseClient.hpp"
+
+class CGameClient final : public CBaseClient
 {
 public:
 	CGameClient() = default;
 	~CGameClient() = default;
+private:
 };

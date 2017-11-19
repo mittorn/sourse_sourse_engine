@@ -20,8 +20,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 // sound.h -- client sound i/o functions
 
-#ifndef __SOUND__
-#define __SOUND__
+#pragma once
 
 #define DEFAULT_SOUND_PACKET_VOLUME 255
 #define DEFAULT_SOUND_PACKET_ATTENUATION 1.0
@@ -97,8 +96,8 @@ void S_ClearBuffer ();
 void S_Update (vec3_t origin, vec3_t v_forward, vec3_t v_right, vec3_t v_up);
 void S_ExtraUpdate ();
 
-sfx_t *S_PrecacheSound (char *sample);
-void S_TouchSound (char *sample);
+sfx_t *S_PrecacheSound (const char *sample);
+void S_TouchSound (const char *sample);
 void S_ClearPrecache ();
 void S_BeginPrecaching ();
 void S_EndPrecaching ();
@@ -126,7 +125,6 @@ void SNDDMA_Shutdown();
 
 #define	MAX_CHANNELS			128
 #define	MAX_DYNAMIC_CHANNELS	8
-
 
 extern	channel_t   channels[MAX_CHANNELS];
 // 0 to MAX_DYNAMIC_CHANNELS-1	= normal entity sounds
@@ -160,15 +158,13 @@ extern qboolean	snd_initialized;
 
 extern int		snd_blocked;
 
-void S_LocalSound (char *s);
+void S_LocalSound (const char *s);
 sfxcache_t *S_LoadSound (sfx_t *s);
 
-wavinfo_t GetWavinfo (char *name, byte *wav, int wavlength);
+wavinfo_t GetWavinfo (const char *name, byte *wav, int wavlength);
 
 void SND_InitScaletable ();
 void SNDDMA_Submit();
 
 void S_AmbientOff ();
 void S_AmbientOn ();
-
-#endif

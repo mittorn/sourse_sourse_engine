@@ -17,8 +17,10 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
-// disable data conversion warnings
 
+#pragma once
+
+// disable data conversion warnings
 #pragma warning(disable : 4244)     // MIPS
 #pragma warning(disable : 4136)     // X86
 #pragma warning(disable : 4051)     // ALPHA
@@ -29,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <gl\glu.h>
 
 void GL_BeginRendering (int *x, int *y, int *width, int *height);
-void GL_EndRendering (void);
+void GL_EndRendering ();
 
 
 // Function prototypes for the Texture Object Extension routines
@@ -92,8 +94,8 @@ extern	PROC glVertexPointerEXT;
 #define BACKFACE_EPSILON	0.01
 
 
-void R_TimeRefresh_f (void);
-void R_ReadPointFile_f (void);
+void R_TimeRefresh_f ();
+void R_ReadPointFile_f ();
 texture_t *R_TextureAnimation (texture_t *base);
 
 typedef struct surfcache_s
