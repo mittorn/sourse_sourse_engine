@@ -6,7 +6,7 @@ include_directories(
 add_subdirectory(tier0) # blank
 #add_subdirectory(tier2)
 
-#add_subdirectory(vstdlib) # unresolved
+add_subdirectory(vstdlib) # unresolved
 
 #add_subdirectory(datacache) # unresolved
 #add_subdirectory(scenefilecache) # unresolved
