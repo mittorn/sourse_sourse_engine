@@ -1,49 +1,55 @@
 #include "vstdlib/coroutine.h"
 
-Coroutine_Cancel()
+HCoroutine Coroutine_Create(CoroutineFunc_t pFunc, void *pvParam)
+{
+	return 0;
+};
+
+bool Coroutine_Continue(HCoroutine hCoroutine, const char *pchName)
+{
+	return true;
+};
+
+void Coroutine_Cancel(HCoroutine hCoroutine)
 {
 };
 
-Coroutine_Continue()
+void Coroutine_DebugBreak(HCoroutine hCoroutine)
 {
 };
 
-Coroutine_Create()
+void Coroutine_DebugAssert(HCoroutine hCoroutine, const char *pchMsg)
 {
 };
 
-Coroutine_DebugAssert()
+void Coroutine_YieldToMain()
 {
 };
 
-Coroutine_DebugBreak()
+bool Coroutine_IsActive()
+{
+	return false;
+};
+
+HCoroutine Coroutine_GetCurrentlyActive()
+{
+	return 0;
+};
+
+void Coroutine_ReleaseThreadMemory()
 {
 };
 
-Coroutine_GetCurrentlyActive()
+bool Coroutine_Test()
+{
+	return true;
+};
+
+void Coroutine_ValidateGlobals(class CValidator &validator)
 {
 };
 
-Coroutine_GetStackDepth()
+size_t Coroutine_GetStackDepth()
 {
-};
-
-Coroutine_IsActive()
-{
-};
-
-Coroutine_ReleaseThreadMemory()
-{
-};
-
-Coroutine_Test()
-{
-};
-
-Coroutine_ValidateGlobals()
-{
-};
-
-Coroutine_YieldToMain()
-{
+	return 0;
 };

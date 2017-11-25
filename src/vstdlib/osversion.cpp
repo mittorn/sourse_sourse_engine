@@ -1,21 +1,26 @@
 #include "vstdlib/osversion.h"
 
-GetNameFromOSType()
+const char *GetNameFromOSType(EOSType eOSType)
 {
+	return "";
 };
 
-GetOSDetailString()
+const char *GetOSDetailString(char *pchOutBuf, int cchOutBuf)
 {
+	return "";
 };
 
-GetOSType()
+EOSType GetOSType()
 {
+	return k_eOSUnknown;
 };
 
-GetPlatformName()
+bool OSTypesAreCompatible(EOSType eOSTypeDetected, EOSType eOSTypeRequired)
 {
+	return false;
 };
 
-OSTypesAreCompatible()
+const char *GetPlatformName(bool *pbIs64Bit)
 {
+	return "";
 };

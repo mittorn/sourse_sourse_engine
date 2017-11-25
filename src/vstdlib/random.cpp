@@ -11,24 +11,26 @@ void InstallUniformRandomStream(IUniformRandomStream *pStream)
 		//gpUniformRandomStream = &gDefaultUniformRandomStream;
 };
 
-float RandomFloat(float flMin, float flMax)
+void RandomSeed(int iSeed)
+{
+};
+
+float RandomFloat(float flMinVal, float flMaxVal)
 {
 	return 0.0f;
 };
 
-RandomFloatExp()
+float RandomFloatExp(float flMinVal, float flMaxVal, float flExponent)
 {
+	return 0.0f;
 };
 
-RandomGaussianFloat()
+float RandomGaussianFloat(float flMean, float flStdDev)
 {
+	return 0.0f;
 };
 
-int RandomInt(int nMin, int nMax)
+int RandomInt(int iMinVal, int iMaxVal)
 {
 	return 0;
-};
-
-RandomSeed()
-{
 };

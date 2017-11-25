@@ -1,7 +1,13 @@
 #include <cstdio>
 #include "Cvar.hpp"
 
-EXPOSE_SINGLE_INTERFACE(CCvar, ICvar, CVAR_INTERFACE_VERSION)
+CCvar gCvar;
+EXPOSE_SINGLE_INTERFACE_GLOBALVAR(CCvar, ICvar, CVAR_INTERFACE_VERSION, gCvar)
+
+CreateInterfaceFn VStdLib_GetICVarFactory()
+{
+	return &gCvar;
+};
 
 bool CCvar::Connect( CreateInterfaceFn factory )
 {
