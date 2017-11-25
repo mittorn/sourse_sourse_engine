@@ -17,7 +17,10 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+
 // net.h -- quake's interface to the networking layer
+
+#pragma once
 
 #define	PORT_ANY	-1
 
@@ -37,8 +40,8 @@ extern	cvar_t	hostname;
 extern	int		net_socket;
 
 void		NET_Init (int port);
-void		NET_Shutdown (void);
-qboolean	NET_GetPacket (void);
+void		NET_Shutdown ();
+qboolean	NET_GetPacket ();
 void		NET_SendPacket (int length, void *data, netadr_t to);
 
 qboolean	NET_CompareAdr (netadr_t a, netadr_t b);
@@ -100,7 +103,7 @@ typedef struct
 
 extern	int	net_drop;		// packets dropped before this one
 
-void Netchan_Init (void);
+void Netchan_Init ();
 void Netchan_Transmit (netchan_t *chan, int length, byte *data);
 void Netchan_OutOfBand (netadr_t adr, int length, byte *data);
 void Netchan_OutOfBandPrint (netadr_t adr, char *format, ...);
@@ -109,4 +112,3 @@ void Netchan_Setup (netchan_t *chan, netadr_t adr, int qport);
 
 qboolean Netchan_CanPacket (netchan_t *chan);
 qboolean Netchan_CanReliable (netchan_t *chan);
-

@@ -1,3 +1,6 @@
+#include "interface.h"
+#include "engine_launcher_api.h"
+
 #ifdef _MSC_VER
 	#define EXPORT_FUNC [[dllexport]]
 #elif __GNUC__
@@ -18,7 +21,7 @@ C_EXPORT_FUNC int LauncherMain(int argc, char **argv)
 	if(fnEngineFactory)
 		return EXIT_FAILURE;
 	
-	IEngineAPI *pEngine = fnEngineFactory(VENGINE_LAUNCHER_API_VERSION, nullptr);
+	IEngineAPI *pEngine = (IEngineAPI*)fnEngineFactory(VENGINE_LAUNCHER_API_VERSION, nullptr);
 	
 	if(pEngine)
 		return EXIT_FAILURE;
@@ -35,7 +38,7 @@ C_EXPORT_FUNC int LauncherMain(int argc, char **argv)
 	{
 		bRestart = pEngine->Run();
 	}
-	while(bRestart == RUN_RESTART)
+	while(bRestart == RUN_RESTART);
 	
 	pEngine->Shutdown();
 	

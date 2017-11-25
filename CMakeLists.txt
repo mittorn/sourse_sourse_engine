@@ -31,5 +31,7 @@ include_directories(
 	${REPLICASRC_SRCSDK_PATH}/public/tier1
 )
 
+add_subdirectory(${REPLICASRC_SRCSDK_PATH} ${CMAKE_BINARY_DIR}/SourceSDKMini)
+
 # Add build targets
 add_subdirectory(src)

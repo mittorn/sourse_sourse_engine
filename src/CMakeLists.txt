@@ -22,7 +22,7 @@ add_subdirectory(dedicated_main)
 add_subdirectory(networksystem) # blank
 #add_subdirectory(vphysics)
 
-add_subdirectory(engine) # broken
+#add_subdirectory(engine) # broken
 
 #add_subdirectory(game)
 
@@ -33,6 +33,6 @@ if(NOT SWDS)
 	#add_subdirectory(soundsystem) # broken
 	add_subdirectory(studiorender)
 
-	#add_subdirectory(launcher) # broken
+	add_subdirectory(launcher) # unresolved
 	add_subdirectory(launcher_main)
 endif()
