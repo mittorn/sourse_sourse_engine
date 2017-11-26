@@ -1,3 +1,6 @@
+# Disable Rad Telemetry profiling
+add_definitions(-DRAD_TELEMETRY_DISABLED)
+
 include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/common
 	${CMAKE_CURRENT_SOURCE_DIR}/public
@@ -5,6 +8,7 @@ include_directories(
 
 add_subdirectory(tier0) # blank
 #add_subdirectory(tier2)
+#add_subdirectory(tier3)
 
 add_subdirectory(vstdlib) # unresolved
 

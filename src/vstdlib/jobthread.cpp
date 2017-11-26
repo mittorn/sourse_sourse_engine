@@ -1,14 +1,20 @@
 #include "vstdlib/jobthread.h"
 
-IThreadPool *g_pThreadPool{nullptr};
+//CThreadPool gThreadPool;
+IThreadPool *g_pThreadPool{nullptr}; // = &gThreadPool;
 
 IThreadPool *CreateThreadPool()
 {
-	return nullptr;
+	return nullptr; // new CThreadPool();
 };
 
 void DestroyThreadPool(IThreadPool *pPool)
 {
+	if(pPool)
+	{
+		delete pPool;
+		pPool = nullptr;
+	};
 };
 
 void RunThreadPoolTests()

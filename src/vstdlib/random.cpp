@@ -32,7 +32,7 @@ CGaussianRandomStream::CGaussianRandomStream(IUniformRandomStream *pUniformStrea
 {
 };
 
-void CGaussianRandomStream::AttachToStream(IUniformRandomStream *pUniformStream);
+void CGaussianRandomStream::AttachToStream(IUniformRandomStream *pUniformStream)
 {
 };
 

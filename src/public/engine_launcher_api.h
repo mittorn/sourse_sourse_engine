@@ -5,18 +5,15 @@
 // $NoKeywords: $
 //
 //=============================================================================//
-// engine/launcher interface
+
+// engine launcher interface
 
 // THIS FILE SHOULD BE PLACED EITHER IN:
 // * common
 // * public
 // FOLDERS
 
-#ifndef ENGINE_LAUNCHER_APIH
-#define ENGINE_LAUNCHER_APIH
-#ifdef _WIN32
 #pragma once
-#endif
 
 #include "appframework/IAppSystem.h"
 
@@ -80,5 +77,3 @@ public:
 	// Reset the map we're on
 	virtual void SetMap(const char *pMapName) = 0;
 };
-
-#endif // ENGINE_LAUNCHER_APIH

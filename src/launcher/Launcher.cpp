@@ -44,5 +44,5 @@ C_EXPORT_FUNC int LauncherMain(int argc, char **argv)
 	
 	Sys_UnloadModule(hEngineLib);
 	
-	return -1; // ?
+	return -1; // EXIT_SUCCESS ?
 };
