@@ -10,4 +10,4 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 	OUTPUT_NAME "launcher"
 )
 
-target_link_libraries(${PROJECT_NAME} srcsdk-tier1)
+target_link_libraries(${PROJECT_NAME} srcsdk-tier1 replicasrc-tier0)

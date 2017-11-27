@@ -64,12 +64,12 @@ const char *CSoundEmitterSystemBase::GetWaveName(CUtlSymbol & sym)
 
 CUtlSymbol CSoundEmitterSystemBase::AddWaveName(const char *name)
 {
-	return ;
+	return {};
 };
 
 soundlevel_t CSoundEmitterSystemBase::LookupSoundLevel(const char *soundname)
 {
-	return 0;
+	return SNDLVL_NONE;
 };
 
 const char *CSoundEmitterSystemBase::GetWavFileForSound(const char *soundname, char const *actormodel)
@@ -163,7 +163,7 @@ void CSoundEmitterSystemBase::ExpandSoundNameMacros(CSoundParametersInternal & p
 
 gender_t CSoundEmitterSystemBase::GetActorGender(char const *actormodel)
 {
-	return 0;
+	return GENDER_NONE;
 };
 
 void CSoundEmitterSystemBase::GenderExpandString(char const *actormodel, char const *in, char *out, int maxlen)
@@ -199,7 +199,7 @@ bool CSoundEmitterSystemBase::GetParametersForSoundEx(const char *soundname, HSO
 
 soundlevel_t CSoundEmitterSystemBase::LookupSoundLevelByHandle(char const *soundname, HSOUNDSCRIPTHANDLE &handle)
 {
-	return 0;
+	return SNDLVL_NONE;
 };
 
 void CSoundEmitterSystemBase::ReloadSoundEntriesInList(IFileList * pFilesToReload)

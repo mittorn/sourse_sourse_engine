@@ -1,6 +1,6 @@
 #pragma once
 
-#include "common/GameUI/IGameUI.h"
+#include "GameUI/IGameUI.h"
 
 class CGameUI final : public IGameUI
 {

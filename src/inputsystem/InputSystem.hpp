@@ -2,8 +2,6 @@
 
 #include "inputsystem/iinputsystem.h"
 
-EXPOSE_SINGLE_INTERFACE(CInputSystem, IInputSystem, INPUTSYSTEM_INTERFACE_VERSION)
-
 class CInputSystem : public IInputSystem
 {
 public:

@@ -131,7 +131,7 @@ void CGameUI::OnConnectToServer2(const char *game, int IP, int connectionPort, i
 
 bool CGameUI::ValidateStorageDevice(int *pStorageDeviceValidated)
 {
-	return truel
+	return true;
 };
 
 void CGameUI::SetProgressOnStart()

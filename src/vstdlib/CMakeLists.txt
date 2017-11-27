@@ -14,11 +14,10 @@ if(WIN32)
 	list(APPEND PROJECT_SOURCES ${PLATFORM_SOURCES})
 endif()
 
-add_library(${PROJECT_NAME} MODULE ${PROJECT_SOURCES})
+add_library(${PROJECT_NAME} SHARED ${PROJECT_SOURCES})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
 	OUTPUT_NAME "vstdlib"
 )
 
-#replicasrc-tier0
-target_link_libraries(${PROJECT_NAME} srcsdk-tier1)
+target_link_libraries(${PROJECT_NAME} srcsdk-tier1 replicasrc-tier0)

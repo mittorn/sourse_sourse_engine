@@ -1,5 +1,7 @@
 #include "InputSystem.hpp"
 
+EXPOSE_SINGLE_INTERFACE(CInputSystem, IInputSystem, INPUTSYSTEM_INTERFACE_VERSION)
+
 bool CInputSystem::Connect( CreateInterfaceFn factory )
 {
 	return true;
@@ -11,7 +13,7 @@ void CInputSystem::Disconnect()
 
 void *CInputSystem::QueryInterface( const char *pInterfaceName )
 {
-	if(!strcmp(pInterfaceName, INPUTSYSTEM_INTERFACE_VERSION)
+	if(!strcmp(pInterfaceName, INPUTSYSTEM_INTERFACE_VERSION))
 		return static_cast<IInputSystem*>(this);
 	
 	return nullptr;
