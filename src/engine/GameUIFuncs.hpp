@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IGameUIFuncs.hpp"
+#include "IGameUIFuncs.h"
 
 class CGameUIFuncs final : public IGameUIFuncs
 {

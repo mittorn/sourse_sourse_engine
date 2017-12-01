@@ -1,6 +1,6 @@
 #include "GameUIFuncs.hpp"
 
-EXPOSE_SINGLE_INTERFACE(CGameUIFuncs, IGameUIFuncs, VENGINE_GAMEUIFUNCS_VERSION)
+//EXPOSE_SINGLE_INTERFACE(CGameUIFuncs, IGameUIFuncs, VENGINE_GAMEUIFUNCS_VERSION);
 
 bool CGameUIFuncs::IsKeyDown( const char *keyname, bool& isdown )
 {
@@ -14,7 +14,7 @@ const char *CGameUIFuncs::GetBindingForButtonCode( ButtonCode_t code )
 
 ButtonCode_t CGameUIFuncs::GetButtonCodeForBind( const char *pBind )
 {
-	return 0;
+	return BUTTON_CODE_INVALID;
 };
 
 void CGameUIFuncs::GetVideoModes( struct vmode_s **liststart, int *count )

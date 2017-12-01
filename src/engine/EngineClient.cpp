@@ -1,4 +1,5 @@
 #include "EngineClient.hpp"
+#include "mathlib/vmatrix.h"
 
 EXPOSE_SINGLE_INTERFACE(CEngineClient, IVEngineClient, VENGINE_CLIENT_INTERFACE_VERSION)
 
@@ -322,7 +323,7 @@ const char *CEngineClient::SentenceGroupNameFromIndex( int groupIndex )
 	return "";
 };
 
-float CEngineClient::SentenceLength( int sentenceIndex );
+float CEngineClient::SentenceLength( int sentenceIndex )
 {
 	return 0.0f;
 };

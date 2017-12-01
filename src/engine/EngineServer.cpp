@@ -1,6 +1,6 @@
 #include "EngineServer.hpp"
 
-EXPOSE_SINGLE_INTERFACE(CEngineServer, IEngineServer, INTERFACEVERSION_VENGINESERVER)
+EXPOSE_SINGLE_INTERFACE(CEngineServer, IVEngineServer, INTERFACEVERSION_VENGINESERVER)
 
 void CEngineServer::ChangeLevel( const char *s1, const char *s2 )
 {
@@ -564,7 +564,7 @@ bool CEngineServer::CanPlayerChangeName( const edict_t *pEdict )
 	return false;
 };
 
-eFindMapResult CEngineServer::FindMap(char *pMapName, int nMapNameMax )
+IVEngineServer::eFindMapResult CEngineServer::FindMap(char *pMapName, int nMapNameMax )
 {
 	return eFindMap_NotFound;
 };

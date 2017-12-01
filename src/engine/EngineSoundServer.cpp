@@ -1,6 +1,6 @@
-#include "EngineSoundClient.hpp"
+#include "EngineSoundServer.hpp"
 
-EXPOSE_SINGLE_INTERFACE(CEngineSoundClient, IEngineSound, IENGINESOUND_SERVER_INTERFACE_VERSION)
+EXPOSE_SINGLE_INTERFACE(CEngineSoundServer, IEngineSound, IENGINESOUND_SERVER_INTERFACE_VERSION)
 
 bool CEngineSoundServer::PrecacheSound( const char *pSample, bool bPreload, bool bIsUISound)
 {

@@ -18,6 +18,12 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -masm=intel")
 
+# GNU GCC compiler tweaks
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden")
+	set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} --exclude-libs=ALL")
+endif()
+
 set(REPLICASRC_SRCSDK_PATH
 	${CMAKE_SOURCE_DIR}/../SourceSDKMini/src
 	CACHE PATH "Path to the Source SDK"

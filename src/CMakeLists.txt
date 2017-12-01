@@ -2,11 +2,6 @@
 # Disable Rad Telemetry profiling
 add_definitions(-DRAD_TELEMETRY_DISABLED)
 
-# GNU GCC compiler tweaks
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
-endif()
-
 include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/common
 	${CMAKE_CURRENT_SOURCE_DIR}/public
@@ -32,7 +27,7 @@ add_subdirectory(dedicated_main)
 add_subdirectory(networksystem) # blank
 #add_subdirectory(vphysics)
 
-#add_subdirectory(engine) # broken
+add_subdirectory(engine) # broken
 
 #add_subdirectory(game)
 
