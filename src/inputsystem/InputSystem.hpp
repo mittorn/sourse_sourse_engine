@@ -82,4 +82,8 @@ public:
 	bool GetRawMouseAccumulators(int &accumX, int &accumY) override;
 
 	void SetConsoleTextMode(bool bConsoleTextMode) override;
+private:
+	bool mbActive{false};
+	bool mbMessagePump{false};
+	bool mbConsoleTextMode{false};
 };

@@ -1,6 +1,7 @@
 #include "ModelInfoServer.hpp"
+#include "tier1/interface.h"
 
-EXPOSE_SINGLE_INTERFACE(CModelInfoServer, IVModelInfo, VMODELINFO_SERVER_INTERFACE_VERSION)
+EXPOSE_SINGLE_INTERFACE(CModelInfoServer, IVModelInfo, VMODELINFO_SERVER_INTERFACE_VERSION);
 
 const model_t *CModelInfoServer::GetModel( int modelindex )
 {
@@ -162,12 +163,12 @@ void CModelInfoServer::SetViewScreenFadeRange( float flMinSize, float flMaxSize 
 
 unsigned char CModelInfoServer::ComputeLevelScreenFade( const Vector &vecAbsOrigin, float flRadius, float flFadeScale ) const
 {
-	return '';
+	return 0;
 };
 
 unsigned char CModelInfoServer::ComputeViewScreenFade( const Vector &vecAbsOrigin, float flRadius, float flFadeScale ) const
 {
-	return '';
+	return 0;
 };
 
 int CModelInfoServer::GetAutoplayList( const studiohdr_t *pStudioHdr, unsigned short **pAutoplayList ) const
@@ -231,7 +232,7 @@ void CModelInfoServer::ReleaseDynamicModel( int modelIndex )
 {
 };
 
-bool CModelInfoServer::RegisterModelLoadCallback( int modelindex, IModelLoadCallback* pCallback, bool bCallImmediatelyIfLoaded = true )
+bool CModelInfoServer::RegisterModelLoadCallback( int modelindex, IModelLoadCallback* pCallback, bool bCallImmediatelyIfLoaded)
 {
 	return false;
 };

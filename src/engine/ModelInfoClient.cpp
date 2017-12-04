@@ -1,6 +1,7 @@
 #include "ModelInfoClient.hpp"
+#include "tier1/interface.h"
 
-EXPOSE_SINGLE_INTERFACE(CModelInfoClient, IVModelInfoClient, VMODELINFO_CLIENT_INTERFACE_VERSION)
+EXPOSE_SINGLE_INTERFACE(CModelInfoClient, IVModelInfoClient, VMODELINFO_CLIENT_INTERFACE_VERSION);
 
 const model_t *CModelInfoClient::GetModel( int modelindex )
 {
@@ -65,7 +66,7 @@ bool CModelInfoClient::IsTranslucentTwoPass( const model_t *model ) const
 	return false;
 };
 
-void CModelInfoClient::RecomputeTranslucency( const model_t *model, int nSkin, int nBody, void /*IClientRenderable*/ *pClientRenderable, float fInstanceAlphaModulate=1.0f)
+void CModelInfoClient::RecomputeTranslucency( const model_t *model, int nSkin, int nBody, void /*IClientRenderable*/ *pClientRenderable, float fInstanceAlphaModulate)
 {
 };
 
@@ -231,7 +232,7 @@ void CModelInfoClient::ReleaseDynamicModel( int modelIndex )
 {
 };
 
-bool CModelInfoClient::RegisterModelLoadCallback( int modelindex, IModelLoadCallback* pCallback, bool bCallImmediatelyIfLoaded = true )
+bool CModelInfoClient::RegisterModelLoadCallback( int modelindex, IModelLoadCallback* pCallback, bool bCallImmediatelyIfLoaded)
 {
 	return false;
 };

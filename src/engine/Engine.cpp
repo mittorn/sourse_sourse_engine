@@ -3,10 +3,18 @@
 CEngine gEngine;
 IEngine *gpEngine = &gEngine;
 
+/*
+IEngine *GetEngine()
+{
+	static CEngine Engine;
+	return &gEngine;
+};
+*/
+
 void CEngine::Init()
 {
-	host_parms.memsize = 16*1024*1024;
-	host_parms.membase = malloc (host_parms.memsize);
+	host_parms.memsize = 16 * 1024 * 1024;
+	host_parms.membase = malloc(host_parms.memsize);
 	host_parms.basedir = ".";
 
 	//COM_InitArgv (argc, argv);

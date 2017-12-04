@@ -17,19 +17,13 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
+
 // in_win.c -- windows 95 mouse and joystick code
 // 02/21/97 JCB Added extended DirectInput code to support external controllers.
 
-#include <dinput.h>
 #include "quakedef.h"
 #include "winquake.h"
 #include "dosisms.h"
-
-#define DINPUT_BUFFERSIZE           16
-#define iDirectInputCreate(a,b,c,d)	pDirectInputCreate(a,b,c,d)
-
-HRESULT (WINAPI *pDirectInputCreate)(HINSTANCE hinst, DWORD dwVersion,
-	LPDIRECTINPUT * lplpDirectInput, LPUNKNOWN punkOuter);
 
 // mouse variables
 cvar_t	m_filter = {"m_filter","0"};
@@ -42,7 +36,6 @@ int			mouse_x, mouse_y, old_mouse_x, old_mouse_y, mx_accum, my_accum;
 static qboolean	restore_spi;
 static int		originalmouseparms[3], newmouseparms[3] = {0, 0, 1};
 
-unsigned int uiWheelMessage;
 qboolean	mouseactive;
 qboolean		mouseinitialized;
 static qboolean	mouseparmsvalid, mouseactivatetoggle;
@@ -109,12 +102,11 @@ int			joy_id;
 DWORD		joy_flags;
 DWORD		joy_numbuttons;
 
-static LPDIRECTINPUT		g_pdi;
-static LPDIRECTINPUTDEVICE	g_pMouse;
+
 
 static JOYINFOEX	ji;
 
-static HINSTANCE hInstDI;
+
 
 static qboolean	dinput;
 
@@ -150,8 +142,8 @@ static DIDATAFORMAT	df = {
 };
 
 // forward-referenced functions
-void IN_StartupJoystick (void);
-void Joy_AdvancedUpdate_f (void);
+void IN_StartupJoystick ();
+void Joy_AdvancedUpdate_f ();
 void IN_JoyMove (usercmd_t *cmd);
 
 
@@ -160,7 +152,7 @@ void IN_JoyMove (usercmd_t *cmd);
 Force_CenterView_f
 ===========
 */
-void Force_CenterView_f (void)
+void Force_CenterView_f ()
 {
 	cl.viewangles[PITCH] = 0;
 }
@@ -171,7 +163,7 @@ void Force_CenterView_f (void)
 IN_UpdateClipCursor
 ===========
 */
-void IN_UpdateClipCursor (void)
+void IN_UpdateClipCursor ()
 {
 
 	if (mouseinitialized && mouseactive && !dinput)
@@ -186,7 +178,7 @@ void IN_UpdateClipCursor (void)
 IN_ShowMouse
 ===========
 */
-void IN_ShowMouse (void)
+void IN_ShowMouse ()
 {
 
 	if (!mouseshowtoggle)
@@ -202,7 +194,7 @@ void IN_ShowMouse (void)
 IN_HideMouse
 ===========
 */
-void IN_HideMouse (void)
+void IN_HideMouse ()
 {
 
 	if (mouseshowtoggle)
@@ -218,7 +210,7 @@ void IN_HideMouse (void)
 IN_ActivateMouse
 ===========
 */
-void IN_ActivateMouse (void)
+void IN_ActivateMouse ()
 {
 
 	mouseactivatetoggle = true;
@@ -260,7 +252,7 @@ void IN_ActivateMouse (void)
 IN_SetQuakeMouseState
 ===========
 */
-void IN_SetQuakeMouseState (void)
+void IN_SetQuakeMouseState ()
 {
 	if (mouseactivatetoggle)
 		IN_ActivateMouse ();
@@ -272,7 +264,7 @@ void IN_SetQuakeMouseState (void)
 IN_DeactivateMouse
 ===========
 */
-void IN_DeactivateMouse (void)
+void IN_DeactivateMouse ()
 {
 
 	mouseactivatetoggle = false;
@@ -309,7 +301,7 @@ void IN_DeactivateMouse (void)
 IN_RestoreOriginalMouseState
 ===========
 */
-void IN_RestoreOriginalMouseState (void)
+void IN_RestoreOriginalMouseState ()
 {
 	if (mouseactivatetoggle)
 	{
@@ -323,104 +315,12 @@ void IN_RestoreOriginalMouseState (void)
 	ShowCursor (FALSE);
 }
 
-
-/*
-===========
-IN_InitDInput
-===========
-*/
-qboolean IN_InitDInput (void)
-{
-    HRESULT		hr;
-	DIPROPDWORD	dipdw = {
-		{
-			sizeof(DIPROPDWORD),        // diph.dwSize
-			sizeof(DIPROPHEADER),       // diph.dwHeaderSize
-			0,                          // diph.dwObj
-			DIPH_DEVICE,                // diph.dwHow
-		},
-		DINPUT_BUFFERSIZE,              // dwData
-	};
-
-	if (!hInstDI)
-	{
-		hInstDI = LoadLibrary("dinput.dll");
-		
-		if (hInstDI == NULL)
-		{
-			Con_SafePrintf ("Couldn't load dinput.dll\n");
-			return false;
-		}
-	}
-
-	if (!pDirectInputCreate)
-	{
-		pDirectInputCreate = (void *)GetProcAddress(hInstDI,"DirectInputCreateA");
-
-		if (!pDirectInputCreate)
-		{
-			Con_SafePrintf ("Couldn't get DI proc addr\n");
-			return false;
-		}
-	}
-
-// register with DirectInput and get an IDirectInput to play with.
-	hr = iDirectInputCreate(global_hInstance, DIRECTINPUT_VERSION, &g_pdi, NULL);
-
-	if (FAILED(hr))
-	{
-		return false;
-	}
-
-// obtain an interface to the system mouse device.
-	hr = IDirectInput_CreateDevice(g_pdi, &GUID_SysMouse, &g_pMouse, NULL);
-
-	if (FAILED(hr))
-	{
-		Con_SafePrintf ("Couldn't open DI mouse device\n");
-		return false;
-	}
-
-// set the data format to "mouse format".
-	hr = IDirectInputDevice_SetDataFormat(g_pMouse, &df);
-
-	if (FAILED(hr))
-	{
-		Con_SafePrintf ("Couldn't set DI mouse format\n");
-		return false;
-	}
-
-// set the cooperativity level.
-	hr = IDirectInputDevice_SetCooperativeLevel(g_pMouse, mainwindow,
-			DISCL_EXCLUSIVE | DISCL_FOREGROUND);
-
-	if (FAILED(hr))
-	{
-		Con_SafePrintf ("Couldn't set DI coop level\n");
-		return false;
-	}
-
-
-// set the buffer size to DINPUT_BUFFERSIZE elements.
-// the buffer size is a DWORD property associated with the device
-	hr = IDirectInputDevice_SetProperty(g_pMouse, DIPROP_BUFFERSIZE, &dipdw.diph);
-
-	if (FAILED(hr))
-	{
-		Con_SafePrintf ("Couldn't set DI buffersize\n");
-		return false;
-	}
-
-	return true;
-}
-
-
 /*
 ===========
 IN_StartupMouse
 ===========
 */
-void IN_StartupMouse (void)
+void IN_StartupMouse ()
 {
 	HDC			hdc;
 
@@ -481,7 +381,7 @@ void IN_StartupMouse (void)
 IN_Init
 ===========
 */
-void IN_Init (void)
+void IN_Init ()
 {
 	// mouse variables
 	Cvar_RegisterVariable (&m_filter);
@@ -510,8 +410,6 @@ void IN_Init (void)
 	Cmd_AddCommand ("force_centerview", Force_CenterView_f);
 	Cmd_AddCommand ("joyadvancedupdate", Joy_AdvancedUpdate_f);
 
-	uiWheelMessage = RegisterWindowMessage ( "MSWHEEL_ROLLMSG" );
-
 	IN_StartupMouse ();
 	IN_StartupJoystick ();
 }
@@ -521,23 +419,10 @@ void IN_Init (void)
 IN_Shutdown
 ===========
 */
-void IN_Shutdown (void)
+void IN_Shutdown ()
 {
-
 	IN_DeactivateMouse ();
 	IN_ShowMouse ();
-
-    if (g_pMouse)
-	{
-		IDirectInputDevice_Release(g_pMouse);
-		g_pMouse = NULL;
-	}
-
-    if (g_pdi)
-	{
-		IDirectInput_Release(g_pdi);
-		g_pdi = NULL;
-	}
 }
 
 
@@ -751,7 +636,7 @@ void IN_Move (usercmd_t *cmd)
 IN_Accumulate
 ===========
 */
-void IN_Accumulate (void)
+void IN_Accumulate ()
 {
 	int		mx, my;
 	HDC	hdc;
@@ -777,7 +662,7 @@ void IN_Accumulate (void)
 IN_ClearStates
 ===================
 */
-void IN_ClearStates (void)
+void IN_ClearStates ()
 {
 
 	if (mouseactive)
@@ -794,7 +679,7 @@ void IN_ClearStates (void)
 IN_StartupJoystick 
 =============== 
 */  
-void IN_StartupJoystick (void) 
+void IN_StartupJoystick () 
 { 
 	int			i, numdevs;
 	JOYCAPS		jc;
@@ -888,7 +773,7 @@ PDWORD RawValuePointer (int axis)
 Joy_AdvancedUpdate_f
 ===========
 */
-void Joy_AdvancedUpdate_f (void)
+void Joy_AdvancedUpdate_f ()
 {
 
 	// called once by IN_ReadJoystick and by user whenever an update is needed
@@ -960,7 +845,7 @@ void Joy_AdvancedUpdate_f (void)
 IN_Commands
 ===========
 */
-void IN_Commands (void)
+void IN_Commands ()
 {
 	int		i, key_index;
 	DWORD	buttonstate, povstate;
@@ -1030,7 +915,7 @@ void IN_Commands (void)
 IN_ReadJoystick
 =============== 
 */  
-qboolean IN_ReadJoystick (void)
+qboolean IN_ReadJoystick ()
 {
 
 	memset (&ji, 0, sizeof(ji));

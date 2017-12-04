@@ -60,14 +60,6 @@ public:
 
 	bool IsUsingFBTexture( const model_t *model, int nSkin, int nBody, void /*IClientRenderable*/ *pClientRenderable ) const override;
 
-	const model_t *FindOrLoadModel( const char *name ) { Warning( "IVModelInfo::FindOrLoadModel is now obsolte.\n" ); return NULL; }
-	void InitDynamicModels() { Warning( "IVModelInfo::InitDynamicModels is now obsolte.\n" ); }
-	void ShutdownDynamicModels() { Warning( "IVModelInfo::ShutdownDynamicModels is now obsolte.\n" ); }
-	void AddDynamicModel( const char *name, int nModelIndex = -1 ) { Warning( "IVModelInfo::AddDynamicModel is now obsolte.\n" ); }
-	void ReferenceModel( int modelindex ) { Warning( "IVModelInfo::ReferenceModel is now obsolte.\n" ); }
-	void UnreferenceModel( int modelindex ) { Warning( "IVModelInfo::UnreferenceModel is now obsolte.\n" ); }
-	void CleanupDynamicModels( bool bForce = false ) { Warning( "IVModelInfo::CleanupDynamicModels is now obsolte.\n" ); }
-
 	MDLHandle_t GetCacheHandle( const model_t *model ) const override;
 
 	int GetBrushModelPlaneCount( const model_t *model ) const override;

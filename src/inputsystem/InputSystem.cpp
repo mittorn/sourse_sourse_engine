@@ -1,6 +1,6 @@
 #include "InputSystem.hpp"
 
-EXPOSE_SINGLE_INTERFACE(CInputSystem, IInputSystem, INPUTSYSTEM_INTERFACE_VERSION)
+EXPOSE_SINGLE_INTERFACE(CInputSystem, IInputSystem, INPUTSYSTEM_INTERFACE_VERSION);
 
 bool CInputSystem::Connect( CreateInterfaceFn factory )
 {
@@ -21,6 +21,11 @@ void *CInputSystem::QueryInterface( const char *pInterfaceName )
 
 InitReturnVal_t CInputSystem::Init()
 {
+	if(!mbConsoleTextMode)
+	{
+		// TODO: Init joystick
+	};
+	
 	return INIT_OK;
 };
 
@@ -30,22 +35,37 @@ void CInputSystem::Shutdown()
 
 void CInputSystem::AttachToWindow(void *hWnd)
 {
+	mhWnd = hWnd;
 };
 
 void CInputSystem::DetachFromWindow()
 {
+	mhWnd = nullptr;
 };
 
 void CInputSystem::EnableInput(bool bEnable)
 {
+	mbActive = bEnable;
 };
 
 void CInputSystem::EnableMessagePump(bool bEnable)
 {
+	mbMessagePump = bEnable;
 };
 
 void CInputSystem::PollInputState()
 {
+	//if(!mbActive)
+		//return;
+	if(mbActive)
+	{
+		// TODO: Poll
+	};
+	
+	if(mbMessagePump)
+	{
+		// TODO: msg pump here
+	};
 };
 
 int CInputSystem::GetPollTick() const
@@ -189,4 +209,5 @@ bool CInputSystem::GetRawMouseAccumulators(int &accumX, int &accumY)
 
 void CInputSystem::SetConsoleTextMode(bool bConsoleTextMode)
 {
+	mbConsoleTextMode = bConsoleTextMode;
 };

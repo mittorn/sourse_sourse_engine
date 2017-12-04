@@ -1,26 +1,11 @@
 #pragma once
 
+//#include "interface.h"
+
+//abstract_class
 struct IEngine
 {
-	virtual void Init() = 0;
-	virtual void Shutdown() = 0;
-	
-	virtual void Frame() = 0;
-};
-
-extern IEngine *gpEngine;
-
-//extern IEngine *GetEngine();
-
 /*
-#include "interface.h"
-
-//-----------------------------------------------------------------------------
-// Purpose: 
-//-----------------------------------------------------------------------------
-abstract_class IEngine
-{
-public:
 	enum
 	{
 		QUIT_NOTQUITTING = 0,
@@ -37,23 +22,26 @@ public:
 		DLL_RESTART,			// engine is shutting down but will restart right away
 		DLL_PAUSED,				// engine is paused, can become active from this state
 	};
+*/
+	
+	//virtual ~IEngine() = default;
+	
+	virtual void Init() = 0; // bool Load(bool dedicated, const char *rootdir)
+	virtual void Shutdown() = 0; // Unload
+	
+	//virtual void SetNextState(EngineState_t iNextState) = 0;
+	//virtual EngineState_t GetState() const = 0;
+	
+	virtual void Frame() = 0;
+	
+	//virtual float GetFrameTime() const = 0;
+	//virtual float GetCurTime() const = 0;
 
-
-	virtual			~IEngine( void ) { }
-
-	virtual	bool	Load( bool dedicated, const char *rootdir ) = 0;
-	virtual void	Unload( void ) = 0;
-	virtual void	SetNextState( EngineState_t iNextState ) = 0;
-	virtual EngineState_t GetState( void ) = 0;
-
-	virtual void	Frame( void ) = 0;
-
-	virtual float	GetFrameTime( void ) = 0;
-	virtual float	GetCurTime( void ) = 0;
-
-	virtual int		GetQuitting( void ) = 0;
-	virtual void	SetQuitting( int quittype ) = 0;
+	//virtual void SetQuitting(int quittype) = 0;
+	//virtual int GetQuitting() const = 0;
 };
 
-extern IEngine *eng;
-*/
+extern IEngine *gpEngine;
+//extern IEngine *eng;
+
+//extern IEngine *GetEngine();
