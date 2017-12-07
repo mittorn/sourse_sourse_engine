@@ -1,6 +1,7 @@
-#include "NetworkStringTableContainer.hpp"
+#include "NetworkStringTableContainerServer.hpp"
+#include "tier1/interface.h"
 
-EXPOSE_SINGLE_INTERFACE(CNetworkStringTableContainerServer, INetworkStringTableContainer, INTERFACENAME_NETWORKSTRINGTABLESERVER)
+EXPOSE_SINGLE_INTERFACE(CNetworkStringTableContainerServer, INetworkStringTableContainer, INTERFACENAME_NETWORKSTRINGTABLESERVER);
 
 INetworkStringTable *CNetworkStringTableContainerServer::CreateStringTable( const char *tableName, int maxentries, int userdatafixedsize, int userdatanetworkbits )
 {

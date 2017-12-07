@@ -27,7 +27,7 @@ add_subdirectory(dedicated_main)
 add_subdirectory(networksystem) # blank
 #add_subdirectory(vphysics)
 
-add_subdirectory(engine) # broken
+#add_subdirectory(engine) # broken
 
 #add_subdirectory(game)
 

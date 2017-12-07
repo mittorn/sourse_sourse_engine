@@ -1,6 +1,7 @@
 #include "GameUIFuncs.hpp"
+#include "tier1/interface.h"
 
-//EXPOSE_SINGLE_INTERFACE(CGameUIFuncs, IGameUIFuncs, VENGINE_GAMEUIFUNCS_VERSION);
+EXPOSE_SINGLE_INTERFACE(CGameUIFuncs, IGameUIFuncs, VENGINE_GAMEUIFUNCS_VERSION);
 
 bool CGameUIFuncs::IsKeyDown( const char *keyname, bool& isdown )
 {

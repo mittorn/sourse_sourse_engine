@@ -35,12 +35,12 @@ void CInputSystem::Shutdown()
 
 void CInputSystem::AttachToWindow(void *hWnd)
 {
-	mhWnd = hWnd;
+	//mhWnd = hWnd;
 };
 
 void CInputSystem::DetachFromWindow()
 {
-	mhWnd = nullptr;
+	//mhWnd = nullptr;
 };
 
 void CInputSystem::EnableInput(bool bEnable)
