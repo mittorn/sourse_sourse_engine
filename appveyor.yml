@@ -20,7 +20,8 @@ os: Visual Studio 2017
 
 # scripts that run after cloning repository
 install:
- - git submodule update --init --recursive
+  - git clone https://github.com/headcrab-garage/SourceSDKMini ../SourceSDKMini
+ #- git submodule update --init --recursive
 
 #---------------------------------#
 #       build configuration       #
@@ -33,4 +34,4 @@ before_build:
    - cmake . -DSDL_STATIC=0 -DSDL_SHARED=1
 
 build:
-  project: C:/headcrab-garage/ReplicaSource/build/ReplicaSource.sln
+  project: C:/projects/ReplicaSource/build/ReplicaSource.sln
