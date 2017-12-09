@@ -18,6 +18,9 @@ version: 0.1.2 ({build})
 
 os: Visual Studio 2017
 
+# clone directory
+clone_folder: c:\headcrab-garage\ReplicaSource\build
+
 # scripts that run after cloning repository
 install:
   - git clone https://github.com/headcrab-garage/SourceSDKMini ../SourceSDKMini
@@ -34,4 +37,4 @@ before_build:
    - cmake . -DSDL_STATIC=0 -DSDL_SHARED=1
 
 build:
-  project: C:/projects/ReplicaSource/build/ReplicaSource.sln
+  project: C:/headcrab-garage/ReplicaSource/build/ReplicaSource.sln
